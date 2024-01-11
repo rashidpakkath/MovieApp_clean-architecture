@@ -20,6 +20,6 @@ final _lightTheme = ThemeData(brightness: Brightness.light, extensions: [
 ]);
 
 @riverpod
-lightTheme(LightThemeRef ref) {
+ThemeData lightTheme(LightThemeRef ref) {
   return _lightTheme;
 }
