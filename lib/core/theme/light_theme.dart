@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/theme/color_palette.dart';
 import 'package:movie_app/core/theme/extention/color_extention.dart';
 import 'package:movie_app/core/theme/extention/space_extention.dart';
+import 'package:movie_app/core/theme/extention/typography_extention.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'light_theme.g.dart';
@@ -17,6 +18,11 @@ final _lightTheme = ThemeData(brightness: Brightness.light, extensions: [
     backgroundDanger: Colors.black12,
   ),
   AppSpaceExtension.fromBaseSpace(8),
+  AppTypographyExtension.fromColors(
+    defaultFontColor: AppColorPalette.gray100,
+    linkColor: Colors.blue,
+    dimFontColor: Colors.black,
+  )
 ]);
 
 @riverpod

@@ -12,15 +12,19 @@ class TextFieldWidget extends StatelessWidget {
     final colors = AppTheme.of(context).colors;
     final space = AppTheme.of(context).spaces;
     return Padding(
-      padding: EdgeInsets.all(space.space_200),
+      padding: EdgeInsets.symmetric(
+          horizontal: space.space_400, vertical: space.space_100),
       child: TextField(
         decoration: InputDecoration(
-            fillColor: colors.secondary,
-            filled: true,
-            labelText: labelText,
-            labelStyle: TextStyle(color: colors.textInverse),
-            prefixIcon: iconData,
-            border: OutlineInputBorder(borderSide: BorderSide.none)),
+          fillColor: colors.secondary,
+          filled: true,
+          labelText: labelText,
+          labelStyle: TextStyle(color: colors.textInverse),
+          prefixIcon: iconData,
+          // border: OutlineInputBorder(
+          //   borderSide: BorderSide(color: colors.textSubtle),
+          // ),
+        ),
       ),
     );
   }
