@@ -4,8 +4,8 @@ import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_widget.dart';
 
-class ShapeWidgetRight extends ConsumerWidget {
-  const ShapeWidgetRight({super.key});
+class ShapeWidgetRightSignup extends ConsumerWidget {
+  const ShapeWidgetRightSignup({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,19 +19,19 @@ class ShapeWidgetRight extends ConsumerWidget {
       child: CustomPaint(
         size: Size(MediaQuery.sizeOf(context).width,
             (MediaQuery.sizeOf(context).width * 1.3333333333333333).toDouble()),
-        painter: ShapeCustomeWidgetRight(),
+        painter: ShapeCustomWiddgetSingup(),
         child: Column(
           children: [
             SizedBox(
               height: space.space_900,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(right: space.space_100 / 2),
+                  padding: EdgeInsets.only(left: space.space_100),
                   child: Text(
-                    data.singin,
+                    data.login,
                     style: typography.h800,
                   ),
                 ),

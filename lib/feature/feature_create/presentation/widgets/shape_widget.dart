@@ -112,7 +112,7 @@ class ShapeCustomWiddgetSingup extends CustomPainter {
     path_0.close();
     canvas.drawPath(path_0, paint_fill_0);
     Paint paint_stroke_0 = Paint()
-      ..color = Colors.black
+      ..color = Colors.white
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.00
       ..strokeCap = StrokeCap.butt
@@ -153,7 +153,7 @@ class ShapeCustomeWidgetSingupRight extends CustomPainter {
     path_0.close();
     canvas.drawPath(path_0, paint_fill_0);
     Paint paint_stroke_0 = Paint()
-      ..color = Colors.white
+      ..color = Colors.black
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.00
       ..strokeCap = StrokeCap.butt

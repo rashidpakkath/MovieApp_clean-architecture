@@ -10,6 +10,9 @@ final class LoginConstans {
   final String enterEmail = 'Enter your e-mail';
   final String password = 'Password';
   final String forgetPassword = 'Forget Password';
+  final String confirmPassword = 'Confirm Password';
+  final String createAccount = 'Create New Account';
+  final String loginAccount = 'Login Your Account';
 }
 
 @riverpod

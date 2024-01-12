@@ -16,7 +16,7 @@ class ShapeWidget extends ConsumerWidget {
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
     return SizedBox(
-      height: space.space_800 * 6.5,
+      height: space.space_800 * 7.5,
       width: space.space_800 * 5.5,
       child: CustomPaint(
         size: Size(MediaQuery.sizeOf(context).width,
