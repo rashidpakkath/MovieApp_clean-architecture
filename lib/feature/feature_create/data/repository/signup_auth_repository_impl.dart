@@ -24,6 +24,11 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> signOut() async {
     await dataSourceAuth.signOut();
   }
+
+  @override
+  Future<void> verifyEmail() async {
+    await dataSourceAuth.verifyEmail();
+  }
 }
 
 @riverpod

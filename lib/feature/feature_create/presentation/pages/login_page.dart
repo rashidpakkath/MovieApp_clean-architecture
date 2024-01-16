@@ -8,6 +8,7 @@ import 'package:movie_app/feature/feature_create/presentation/widgets/shape_logi
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_loginback_widget.dart';
 
 class MyLoginPage extends ConsumerWidget {
+  static const routePath = '/login';
   const MyLoginPage({super.key});
 
   @override

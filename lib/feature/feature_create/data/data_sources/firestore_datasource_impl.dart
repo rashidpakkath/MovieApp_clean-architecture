@@ -50,6 +50,11 @@ class FirebaseImpl implements FirebaseAuthentication {
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }
+
+  @override
+  Future<void> verifyEmail() async {
+    await _auth.currentUser!.sendEmailVerification();
+  }
 }
 
 @riverpod

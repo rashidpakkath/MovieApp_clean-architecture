@@ -12,6 +12,7 @@ import 'package:movie_app/feature/feature_create/presentation/widgets/shape_sign
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_signupback_widget.dart';
 
 class SignUpPage extends HookConsumerWidget {
+  static const routePath = '/signup';
   const SignUpPage({super.key});
 
   @override
