@@ -38,6 +38,10 @@ dependencies:
   go_router: ^13.0.1
   flutter_riverpod: ^2.4.9
   riverpod_annotation: ^2.3.3
+  firebase_auth: ^4.16.0
+  firebase_core: ^2.24.2
+  flutter_hooks: ^0.20.4
+  hooks_riverpod: ^2.4.9
 
 dev_dependencies:
   flutter_test:

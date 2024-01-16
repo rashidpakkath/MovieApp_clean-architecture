@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/login_button_widget.dart';
@@ -9,7 +11,7 @@ import 'package:movie_app/feature/feature_create/presentation/widgets/shape_logi
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_signup_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_signupback_widget.dart';
 
-class SignUpPage extends ConsumerWidget {
+class SignUpPage extends HookConsumerWidget {
   const SignUpPage({super.key});
 
   @override
@@ -52,7 +54,7 @@ class SignUpPage extends ConsumerWidget {
             ),
             LoginButtonWidget(
               onPressed: () {
-                context.pop();
+                context.push('/login');
               },
               buttonText: data.login,
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
+import 'package:movie_app/feature/feature_create/presentation/provider/auth_provaider.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/login_button_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/textfield_widget.dart';
@@ -11,6 +12,11 @@ class ShapeWidgetSignup extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final dataController = ref.read(authenticationProvider(context).notifier);
+    final email =
+        ref.read(authenticationProvider(context).notifier).emailController;
+    final password =
+        ref.read(authenticationProvider(context).notifier).passwordController;
     final colors = AppTheme.of(context).colors;
     final space = AppTheme.of(context).spaces;
     final data = ref.watch(loginConstansProvider);
@@ -57,6 +63,7 @@ class ShapeWidgetSignup extends ConsumerWidget {
             ),
             TextFieldWidget(
               labelText: data.enterEmail,
+              controller: dataController.emailController,
               iconData: Icon(
                 Icons.email,
                 color: colors.text,
@@ -64,23 +71,29 @@ class ShapeWidgetSignup extends ConsumerWidget {
             ),
             TextFieldWidget(
               labelText: data.password,
+              controller: dataController.passwordController,
               iconData: Icon(
                 Icons.lock,
                 color: colors.text,
               ),
             ),
-            TextFieldWidget(
-              labelText: data.confirmPassword,
-              iconData: Icon(
-                Icons.lock,
-                color: colors.text,
-              ),
-            ),
+            // TextFieldWidget(
+            //   controller: dataController.passwordController,
+            //   labelText: data.confirmPassword,
+            //   iconData: Icon(
+            //     Icons.lock,
+            //     color: colors.text,
+            //   ),
+            // ),
             SizedBox(
               height: space.space_600,
             ),
             LoginButtonWidget(
-              onPressed: () {},
+              onPressed: () {
+                ref
+                    .read(authenticationProvider(context).notifier)
+                    .signup(email.text, password.text);
+              },
               buttonText: data.singin,
             ),
           ],

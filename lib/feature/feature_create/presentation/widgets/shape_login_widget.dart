@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
+import 'package:movie_app/feature/feature_create/presentation/provider/auth_provaider.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/login_button_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/textfield_widget.dart';
@@ -11,6 +12,11 @@ class ShapeWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final dataController = ref.watch(authenticationProvider(context).notifier);
+    final email =
+        ref.read(authenticationProvider(context).notifier).emailController;
+    final password =
+        ref.read(authenticationProvider(context).notifier).passwordController;
     final colors = AppTheme.of(context).colors;
     final space = AppTheme.of(context).spaces;
     final data = ref.watch(loginConstansProvider);
@@ -54,6 +60,7 @@ class ShapeWidget extends ConsumerWidget {
               height: space.space_400,
             ),
             TextFieldWidget(
+              controller: dataController.emailController,
               labelText: data.enterEmail,
               iconData: Icon(
                 Icons.email,
@@ -61,6 +68,7 @@ class ShapeWidget extends ConsumerWidget {
               ),
             ),
             TextFieldWidget(
+              controller: dataController.passwordController,
               labelText: data.password,
               iconData: Icon(
                 Icons.lock,
@@ -75,7 +83,11 @@ class ShapeWidget extends ConsumerWidget {
               height: space.space_600,
             ),
             LoginButtonWidget(
-              onPressed: () {},
+              onPressed: () {
+                ref
+                    .watch(authenticationProvider(context).notifier)
+                    .login(email.text, password.text);
+              },
               buttonText: data.login,
             ),
           ],

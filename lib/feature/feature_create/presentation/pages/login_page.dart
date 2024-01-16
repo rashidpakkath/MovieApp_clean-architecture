@@ -6,7 +6,6 @@ import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/login_button_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_login_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/shape_loginback_widget.dart';
-import 'package:movie_app/feature/feature_create/presentation/widgets/textfield_widget.dart';
 
 class MyLoginPage extends ConsumerWidget {
   const MyLoginPage({super.key});
@@ -39,7 +38,7 @@ class MyLoginPage extends ConsumerWidget {
             SizedBox(
               height: space.space_500,
             ),
-            Stack(
+            const Stack(
               alignment: Alignment.center,
               children: [
                 ShapeWidgetRight(),
