@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:movie_app/core/excepation/authentication/auth_field_excepation.dart';
 import 'package:movie_app/feature/feature_create/data/data_sources/firestore_datasource.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -53,7 +54,23 @@ class FirebaseImpl implements FirebaseAuthentication {
 
   @override
   Future<void> verifyEmail() async {
-    await _auth.currentUser!.sendEmailVerification();
+    if (_auth.currentUser != null) {
+      await _auth.currentUser!.sendEmailVerification();
+    } else {
+      throw AuthenticationFailedException('User is not Authenticate');
+    }
+  }
+
+  @override
+  Future<void> googleSignIn() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+    await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
 

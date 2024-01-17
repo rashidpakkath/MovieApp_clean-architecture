@@ -29,6 +29,11 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> verifyEmail() async {
     await dataSourceAuth.verifyEmail();
   }
+
+  @override
+  Future<void> googleSignIn() async {
+    await dataSourceAuth.googleSignIn();
+  }
 }
 
 @riverpod

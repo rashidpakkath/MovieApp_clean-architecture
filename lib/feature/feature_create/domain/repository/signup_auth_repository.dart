@@ -13,4 +13,5 @@ abstract class AuthRepository {
   );
   Future<void> signOut();
   Future<void> verifyEmail();
+  Future<void> googleSignIn();
 }

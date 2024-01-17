@@ -70,6 +70,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '166852986555',
     projectId: 'movie-app-20892',
     storageBucket: 'movie-app-20892.appspot.com',
+    androidClientId: '166852986555-c8vnpc4coi3jjh1pb0c38vahgs54ve7b.apps.googleusercontent.com',
+    iosClientId: '166852986555-qh1q3rkubr2bj62b65t9mjm7tevrj0oa.apps.googleusercontent.com',
     iosBundleId: 'com.example.movieApp',
   );
 }

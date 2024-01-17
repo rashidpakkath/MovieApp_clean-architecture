@@ -14,8 +14,8 @@ class ShapeWidgetRight extends ConsumerWidget {
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
     return SizedBox(
-      height: space.space_800 * 7.5,
-      width: space.space_800 * 5.5,
+      height: space.space_800 * 8,
+      width: space.space_800 * 5.7,
       child: CustomPaint(
         size: Size(MediaQuery.sizeOf(context).width,
             (MediaQuery.sizeOf(context).width * 1.3333333333333333).toDouble()),
@@ -23,7 +23,7 @@ class ShapeWidgetRight extends ConsumerWidget {
         child: Column(
           children: [
             SizedBox(
-              height: space.space_900,
+              height: space.space_400 * 3,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,

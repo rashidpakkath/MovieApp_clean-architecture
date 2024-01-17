@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/feature_create/presentation/provider/auth_provaider.dart';
@@ -22,8 +23,8 @@ class ShapeWidgetSignup extends ConsumerWidget {
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
     return SizedBox(
-      height: space.space_800 * 7.5,
-      width: space.space_800 * 5.5,
+      height: space.space_800 * 8,
+      width: space.space_800 * 5.7,
       child: CustomPaint(
         size: Size(MediaQuery.sizeOf(context).width,
             (MediaQuery.sizeOf(context).width * 1.3333333333333333).toDouble()),
@@ -31,7 +32,7 @@ class ShapeWidgetSignup extends ConsumerWidget {
         child: Column(
           children: [
             SizedBox(
-              height: space.space_800,
+              height: space.space_400 * 3,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -77,16 +78,32 @@ class ShapeWidgetSignup extends ConsumerWidget {
                 color: colors.text,
               ),
             ),
-            // TextFieldWidget(
-            //   controller: dataController.passwordController,
-            //   labelText: data.confirmPassword,
-            //   iconData: Icon(
-            //     Icons.lock,
-            //     color: colors.text,
-            //   ),
-            // ),
             SizedBox(
-              height: space.space_600,
+              height: space.space_100,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: space.space_400),
+              child: InkWell(
+                onTap: () {},
+                child: SizedBox(
+                  child: Row(
+                    children: [
+                      Text(data.signIn),
+                      SizedBox(
+                        width: space.space_100 / 2,
+                      ),
+                      Text(
+                        data.phoneNumber,
+                        style: typography.h600.copyWith(
+                            color: colors.text, fontSize: space.space_200),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: space.space_200,
             ),
             LoginButtonWidget(
               onPressed: () {
@@ -95,6 +112,12 @@ class ShapeWidgetSignup extends ConsumerWidget {
                     .signup(email.text, password.text);
               },
               buttonText: data.singin,
+            ),
+            LoginButtonWidget(
+              onPressed: () {
+                context.push('/login');
+              },
+              buttonText: data.login,
             ),
           ],
         ),

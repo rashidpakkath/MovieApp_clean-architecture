@@ -13,6 +13,11 @@ final class LoginConstans {
   final String confirmPassword = 'Confirm Password';
   final String createAccount = 'Create New Account';
   final String loginAccount = 'Login Your Account';
+  final String googleImage = 'assets/images/login_google.png';
+  final String facebookImage = 'assets/images/login_fb.png';
+  final String signUpWith = 'SignIn With Google';
+  final String signIn = 'SignUp with';
+  final String phoneNumber = 'PHONE NUMBER';
 }
 
 @riverpod

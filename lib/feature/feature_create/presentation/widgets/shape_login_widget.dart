@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/feature_create/presentation/provider/auth_provaider.dart';
@@ -22,8 +23,8 @@ class ShapeWidget extends ConsumerWidget {
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
     return SizedBox(
-      height: space.space_800 * 7.5,
-      width: space.space_800 * 5.5,
+      height: space.space_800 * 8,
+      width: space.space_800 * 5.7,
       child: CustomPaint(
         size: Size(MediaQuery.sizeOf(context).width,
             (MediaQuery.sizeOf(context).width * 1.3333333333333333).toDouble()),
@@ -31,7 +32,7 @@ class ShapeWidget extends ConsumerWidget {
         child: Column(
           children: [
             SizedBox(
-              height: space.space_800,
+              height: space.space_400 * 3,
             ),
             Row(
               children: [
@@ -75,12 +76,23 @@ class ShapeWidget extends ConsumerWidget {
                 color: colors.text,
               ),
             ),
-            Text(
-              data.forgetPassword,
-              style: typography.h400.copyWith(color: colors.text),
+            SizedBox(
+              height: space.space_100,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: space.space_400),
+                  child: Text(
+                    data.forgetPassword,
+                    style: typography.h400.copyWith(color: colors.text),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
-              height: space.space_600,
+              height: space.space_300,
             ),
             LoginButtonWidget(
               onPressed: () {
@@ -89,6 +101,12 @@ class ShapeWidget extends ConsumerWidget {
                     .login(email.text, password.text);
               },
               buttonText: data.login,
+            ),
+            LoginButtonWidget(
+              onPressed: () {
+                context.push('/signup');
+              },
+              buttonText: data.singin,
             ),
           ],
         ),

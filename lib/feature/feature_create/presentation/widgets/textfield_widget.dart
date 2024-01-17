@@ -23,14 +23,12 @@ class TextFieldWidget extends StatelessWidget {
         decoration: InputDecoration(
           fillColor: colors.secondary,
           filled: true,
-
           labelText: labelText,
           labelStyle: TextStyle(color: colors.textInverse),
           prefixIcon: iconData,
-
-          // border: OutlineInputBorder(
-          //   borderSide: BorderSide(color: colors.textSubtle),
-          // ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: colors.textSubtle),
+          ),
         ),
       ),
     );

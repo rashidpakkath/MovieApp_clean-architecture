@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
+import 'package:movie_app/feature/feature_create/presentation/provider/auth_provaider.dart';
 
-class LoginButtonWidget extends ConsumerWidget {
-  final String buttonText;
-  final void Function()? onPressed;
-  const LoginButtonWidget({
-    super.key,
-    required this.buttonText,
-    required this.onPressed,
-  });
+class GoogleContainerWidget extends ConsumerWidget {
+  const GoogleContainerWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,12 +14,15 @@ class LoginButtonWidget extends ConsumerWidget {
     final space = AppTheme.of(context).spaces;
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Text(buttonText),
-      style: ElevatedButton.styleFrom(
-          backgroundColor: colors.text,
-          minimumSize: Size(space.space_500 * 5, space.space_500)),
+    return InkWell(
+      onTap: () {
+        ref.read(authenticationProvider(context).notifier).googleSignin();
+      },
+      child: SizedBox(
+        width: space.space_800,
+        height: space.space_800,
+        child: Image.asset(data.googleImage),
+      ),
     );
   }
 }

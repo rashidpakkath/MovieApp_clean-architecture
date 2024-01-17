@@ -368,6 +368,54 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "13.0.1"
+  google_identity_services_web:
+    dependency: transitive
+    description:
+      name: google_identity_services_web
+      sha256: "000b7a31e1fa17ee04b6c0553a2b2ea18f9f9352e4dcc0c9fcc785cf10f2484e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.2"
+  google_sign_in:
+    dependency: "direct main"
+    description:
+      name: google_sign_in
+      sha256: "8f8b94880f2753ccb796744259da529674e49b9af2e372abf6978c590c0ebfef"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.6"
+  google_sign_in_android:
+    dependency: transitive
+    description:
+      name: google_sign_in_android
+      sha256: bfd42c81c30c6faba16e0f62968d5505a87504aaa672b3155ee931461abb0a49
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.21"
+  google_sign_in_ios:
+    dependency: transitive
+    description:
+      name: google_sign_in_ios
+      sha256: "8edfde9698b5951f3d02632eceb39cc283865c3cff0b03216bf951089f10345b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.6.3"
+  google_sign_in_platform_interface:
+    dependency: transitive
+    description:
+      name: google_sign_in_platform_interface
+      sha256: "1f6e5787d7a120cc0359ddf315c92309069171306242e181c09472d1b00a2971"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.5"
+  google_sign_in_web:
+    dependency: transitive
+    description:
+      name: google_sign_in_web
+      sha256: "794f5494a945d6dd2654c52f979594ecd2558e5c82ce8272295ba371c93015e6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.12.2+1"
   graphs:
     dependency: transitive
     description:
@@ -384,6 +432,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.9"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      sha256: "759d1a329847dd0f39226c688d3e06a6b8679668e350e2891a6474f8b4bb8525"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   http_multi_server:
     dependency: transitive
     description:
@@ -727,4 +783,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=3.1.2 <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.13.0"

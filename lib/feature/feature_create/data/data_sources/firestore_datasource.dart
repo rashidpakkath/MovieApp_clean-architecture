@@ -12,4 +12,6 @@ abstract class FirebaseAuthentication {
   Future<void> signOut();
 
   Future<void> verifyEmail();
+
+  Future<void> googleSignIn();
 }
