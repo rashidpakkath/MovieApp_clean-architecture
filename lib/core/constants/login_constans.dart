@@ -18,6 +18,14 @@ final class LoginConstans {
   final String signUpWith = 'SignIn With Google';
   final String signIn = 'SignUp with';
   final String phoneNumber = 'PHONE NUMBER';
+  final String email = 'E-MAIL';
+  final String enterPhone = 'Enter Your Phone Number';
+  final String sendCode = 'Send-Code';
+  final String submit = 'Submit';
+  final String enterOtp = 'Enter OTP';
+  final String homePage = 'MOVIE STAR';
+  final String logOut = 'LogOut';
+  final String imagePath = 'https://image.tmdb.org/t/p/w780';
 }
 
 @riverpod

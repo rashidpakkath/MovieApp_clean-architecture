@@ -5,8 +5,8 @@ import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/google_container_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/login_button_widget.dart';
-import 'package:movie_app/feature/feature_create/presentation/widgets/shape_login_widget.dart';
-import 'package:movie_app/feature/feature_create/presentation/widgets/shape_loginback_widget.dart';
+import 'package:movie_app/feature/feature_create/presentation/widgets/login_widgets/shape_login_widget.dart';
+import 'package:movie_app/feature/feature_create/presentation/widgets/login_widgets/shape_loginback_widget.dart';
 
 class MyLoginPage extends ConsumerWidget {
   static const routePath = '/login';
@@ -27,7 +27,7 @@ class MyLoginPage extends ConsumerWidget {
           children: [
             SizedBox(
               width: MediaQuery.sizeOf(context).width,
-              height: space.space_500 * 3,
+              height: space.space_500,
             ),
             Text(
               data.welcomeText,

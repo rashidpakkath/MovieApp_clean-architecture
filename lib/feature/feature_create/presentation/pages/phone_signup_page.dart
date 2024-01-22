@@ -9,12 +9,14 @@ import 'package:movie_app/feature/feature_create/presentation/widgets/google_con
 import 'package:movie_app/feature/feature_create/presentation/widgets/login_button_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/login_widgets/shape_login_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/login_widgets/shape_loginback_widget.dart';
+import 'package:movie_app/feature/feature_create/presentation/widgets/phone_signup_widgets/signup_phone_widget.dart';
+import 'package:movie_app/feature/feature_create/presentation/widgets/phone_signup_widgets/signup_phoneback_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/signup_widgets/shape_signup_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/widgets/signup_widgets/shape_signupback_widget.dart';
 
-class SignUpPage extends HookConsumerWidget {
-  static const routePath = '/signup';
-  const SignUpPage({super.key});
+class PhoneSignUpPage extends HookConsumerWidget {
+  static const routePath = '/phone';
+  const PhoneSignUpPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -44,21 +46,21 @@ class SignUpPage extends HookConsumerWidget {
             SizedBox(
               height: space.space_500,
             ),
-            Stack(
+            const Stack(
               alignment: Alignment.center,
               children: [
-                ShapeWidgetRightSignup(),
-                ShapeWidgetSignup(),
+                PhoneWidgetRightSignup(),
+                PhoneWidgetSignup(),
               ],
             ),
             SizedBox(
               height: space.space_500,
             ),
-            Text(
-              data.signUpWith,
-              style: textStyle.h500.copyWith(color: colors.text),
-            ),
-            const GoogleContainerWidget(),
+            // Text(
+            //   data.signUpWith,
+            //   style: textStyle.h500.copyWith(color: colors.text),
+            // ),
+            // const GoogleContainerWidget(),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -50,6 +51,7 @@ class FirebaseImpl implements FirebaseAuthentication {
   @override
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+    await GoogleSignIn().signOut();
   }
 
   @override
@@ -71,6 +73,47 @@ class FirebaseImpl implements FirebaseAuthentication {
       idToken: googleAuth?.idToken,
     );
     await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  @override
+  Future<(String, int?)> phoneNumberSignIn(String phone,
+      [int? resendToken]) async {
+    try {
+      final verificationIdCompleter = Completer<String>();
+      final resendTokenCompleter = Completer<int?>();
+      await FirebaseAuth.instance.verifyPhoneNumber(
+        forceResendingToken: resendToken,
+        phoneNumber: phone,
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          await _auth.signInWithCredential(credential);
+        },
+        verificationFailed: (FirebaseAuthException e) {
+          if (e.code == 'invalid-phone-number') {}
+        },
+        codeSent: (String? verificationId, int? resendToken) async {
+          verificationIdCompleter.complete(verificationId);
+          resendTokenCompleter.complete(resendToken);
+        },
+        codeAutoRetrievalTimeout: (String verificationId) async {},
+      );
+      final verificationId = await verificationIdCompleter.future;
+      final newResendToken = await resendTokenCompleter.future;
+      return (verificationId, newResendToken);
+    } on Exception {
+      throw AuthenticationFailedException('Error');
+    }
+  }
+
+  @override
+  Future<void> verifyOtp(String verificationId, String otp) async {
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationId, smsCode: otp);
+    await _auth.signInWithCredential(credential);
+  }
+
+  @override
+  Future<void> resetPassword(String email) async {
+    await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 }
 

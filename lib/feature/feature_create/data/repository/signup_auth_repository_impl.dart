@@ -34,6 +34,21 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> googleSignIn() async {
     await dataSourceAuth.googleSignIn();
   }
+
+  @override
+  Future<(String, int?)> phoneNumberSignIn(String number) async {
+    return await dataSourceAuth.phoneNumberSignIn(number);
+  }
+
+  @override
+  Future<void> verifyOtp(String verificationId, String otp) async {
+    await dataSourceAuth.verifyOtp(verificationId, otp);
+  }
+
+  @override
+  Future<void> resetPassword(String email) async {
+    await dataSourceAuth.resetPassword(email);
+  }
 }
 
 @riverpod

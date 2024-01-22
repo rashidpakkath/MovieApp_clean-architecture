@@ -8,8 +8,8 @@ import 'package:movie_app/firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-);
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -25,7 +25,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ref.watch(lightThemeProvider),
-      routerConfig: router,
+      routerConfig: ref.watch(routerProvider),
     );
   }
 }
