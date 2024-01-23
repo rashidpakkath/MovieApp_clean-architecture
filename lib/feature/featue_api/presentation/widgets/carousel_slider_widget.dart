@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
+import 'package:movie_app/feature/featue_api/presentation/pages/overview_page.dart';
 import 'package:movie_app/feature/featue_api/presentation/widgets/container_widget.dart';
 
 class CarouselSliderWidget extends ConsumerWidget {
@@ -21,12 +23,17 @@ class CarouselSliderWidget extends ConsumerWidget {
     return CarouselSlider.builder(
       itemCount: itemCount,
       itemBuilder: (context, index, realIndex) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
-            image: DecorationImage(
-              image: NetworkImage(data.imagePath + movieData[index].posterPath),
-              fit: BoxFit.fill,
+        return InkWell(
+          onTap: () =>
+              context.push(OverViewPage.routePath, extra: movieData[index]),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              image: DecorationImage(
+                image:
+                    NetworkImage(data.imagePath + movieData[index].posterPath),
+                fit: BoxFit.fill,
+              ),
             ),
           ),
         );

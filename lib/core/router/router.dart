@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
 import 'package:movie_app/feature/featue_api/presentation/pages/homepage.dart';
+import 'package:movie_app/feature/featue_api/presentation/pages/overview_page.dart';
 import 'package:movie_app/feature/feature_create/presentation/pages/login_page.dart';
 import 'package:movie_app/feature/feature_create/presentation/pages/phone_signup_page.dart';
 import 'package:movie_app/feature/feature_create/presentation/pages/pin_snakbar_page.dart';
@@ -43,6 +45,13 @@ final _router = GoRouter(
       path: SnakbarWidget.routePath,
       name: 'pincode',
       builder: (context, state) => const SnakbarWidget(),
+    ),
+    GoRoute(
+      path: OverViewPage.routePath,
+      name: 'overview',
+      builder: (context, state) => OverViewPage(
+        entity: state.extra as MovieEntity,
+      ),
     )
   ],
 );

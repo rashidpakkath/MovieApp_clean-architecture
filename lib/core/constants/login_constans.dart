@@ -26,6 +26,13 @@ final class LoginConstans {
   final String homePage = 'MOVIE STAR';
   final String logOut = 'LogOut';
   final String imagePath = 'https://image.tmdb.org/t/p/w780';
+  final String search = 'Search For Movie';
+  final String newRelease = 'New Release';
+  final String mostWatch = 'Top Review';
+  final String overView = 'OverView';
+  final String playButton = 'WATCH TRAILER';
+  final String like = 'LIKE';
+  final String Comment = 'COMMENT';
 }
 
 @riverpod

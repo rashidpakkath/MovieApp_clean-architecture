@@ -18,19 +18,32 @@ class ContainerWidget extends ConsumerWidget {
     final data = ref.watch(loginConstansProvider);
     final datas = ref.watch(movieProvaiderProvider);
     final typography = AppTheme.of(context).typography;
-    return ListView.builder(
-      itemCount: itemCount,
-      itemBuilder: (context, index) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
-            image: DecorationImage(
-              image: NetworkImage(data.imagePath + movieData[index].posterPath),
-              fit: BoxFit.cover,
+    return SizedBox(
+      height: space.space_500 * 10.6,
+      child: GridView.builder(
+        itemCount: itemCount,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.all(space.space_100),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                image: DecorationImage(
+                  image: NetworkImage(
+                      data.imagePath + movieData[index].posterPath),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+        shrinkWrap: false,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisExtent: space.space_500 * 5,
+          mainAxisSpacing: space.space_200,
+        ),
+      ),
     );
   }
 }
