@@ -21,6 +21,8 @@ class ApiRepositoryImpl implements ApiRepository {
           overview: result.overview,
           releaseDate: result.releaseDate,
           posterPath: result.posterPath,
+          voteAverage: result.voteAverage,
+          originalLanguage: result.originalLanguage,
         ),
     ];
     return result;

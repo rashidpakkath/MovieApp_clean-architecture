@@ -15,11 +15,11 @@ class PlayButtonWidget extends ConsumerWidget {
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
     return Container(
-      width: MediaQuery.sizeOf(context).width,
+      width: MediaQuery.sizeOf(context).width / 1.05,
       height: space.space_500 * 2,
       color: Colors.black,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ButtonsWidget(
             color: colors.textSubtlest,

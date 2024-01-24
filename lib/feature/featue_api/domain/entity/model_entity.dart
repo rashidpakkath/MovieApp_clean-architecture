@@ -8,5 +8,7 @@ class MovieEntity with _$MovieEntity {
     required String overview,
     @JsonKey(name: 'release_date') required String releaseDate,
     @JsonKey(name: 'poster_path') required String posterPath,
+    @JsonKey(name: 'vote_average') required double voteAverage,
+    @JsonKey(name: 'original_language') required String originalLanguage,
   }) = _MovieEntity;
 }

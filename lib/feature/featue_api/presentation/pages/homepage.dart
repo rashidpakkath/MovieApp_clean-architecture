@@ -24,13 +24,17 @@ class HomePage extends ConsumerWidget {
     final typography = AppTheme.of(context).typography;
     return Scaffold(
         backgroundColor: colors.backgroundDanger,
+        appBar: AppBar(
+          backgroundColor: colors.backgroundDanger,
+          title: AppBarWidget(),
+        ),
         body: ref.watch(movieProvaiderProvider) == null
             ? Text('NO DATA')
             : switch (ref.watch(movieProvaiderProvider)) {
                 AsyncData(:final value) => SingleChildScrollView(
                     child: Column(
                       children: [
-                        AppBarWidget(),
+                        // AppBarWidget(),
                         SearchBarWidget(),
                         SizedBox(
                           height: space.space_100,

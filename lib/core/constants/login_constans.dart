@@ -14,7 +14,8 @@ final class LoginConstans {
   final String createAccount = 'Create New Account';
   final String loginAccount = 'Login Your Account';
   final String googleImage = 'assets/images/login_google.png';
-  final String facebookImage = 'assets/images/login_fb.png';
+  final String profileImage =
+      'assets/images/—Pngtree—profile glyph black icon_4008321.png';
   final String signUpWith = 'SignIn With Google';
   final String signIn = 'SignUp with';
   final String phoneNumber = 'PHONE NUMBER';

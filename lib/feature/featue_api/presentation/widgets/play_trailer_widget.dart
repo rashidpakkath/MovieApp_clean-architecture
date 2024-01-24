@@ -5,8 +5,7 @@ import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 
 class PlayTrailerWidget extends ConsumerWidget {
-  final String image;
-  const PlayTrailerWidget({super.key, required this.image});
+  const PlayTrailerWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,46 +14,27 @@ class PlayTrailerWidget extends ConsumerWidget {
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
     return Container(
-      width: MediaQuery.sizeOf(context).width / 1.1,
-      height: space.space_500 * 2.5,
+      width: MediaQuery.sizeOf(context).width / 1.05,
+      height: space.space_500 * 1.5,
       decoration: BoxDecoration(
         color: colors.secondary,
-        borderRadius: BorderRadius.circular(space.space_150),
+        borderRadius: BorderRadius.circular(space.space_100),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: space.space_500 * 3.5,
-            height: space.space_500 * 2.5,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(image),
-                  fit: BoxFit.fill,
-                ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(space.space_150),
-                  bottomLeft: Radius.circular(space.space_150),
-                ),
-                color: colors.secondary),
+          Icon(
+            Icons.play_circle,
+            size: space.space_500 * 1.5,
+            color: colors.textSubtlest,
           ),
-          Container(
-            width: space.space_500 * 5.5,
-            height: space.space_500 * 1.5,
-            // color: colors.text,
-            child: Row(
-              children: [
-                Icon(
-                  Icons.play_circle,
-                  size: space.space_500 * 1.5,
-                  color: colors.textSubtlest,
-                ),
-                Text(
-                  data.playButton,
-                  style: typography.h600.copyWith(color: colors.textSubtle),
-                ),
-              ],
-            ),
-          )
+          SizedBox(
+            width: space.space_100,
+          ),
+          Text(
+            data.playButton,
+            style: typography.h600.copyWith(color: colors.textSubtle),
+          ),
         ],
       ),
     );

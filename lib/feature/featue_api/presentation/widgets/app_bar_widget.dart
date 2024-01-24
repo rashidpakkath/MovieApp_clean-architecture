@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
+import 'package:movie_app/feature/feature_create/presentation/provider/auth_provaider.dart';
 
 class AppBarWidget extends ConsumerWidget {
   const AppBarWidget({super.key});
@@ -17,27 +18,32 @@ class AppBarWidget extends ConsumerWidget {
       width: MediaQuery.sizeOf(context).width,
       height: space.space_500 * 2.5,
       color: colors.textSubtle,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: space.space_200),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.apps,
-              size: space.space_500,
-              color: colors.primary,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: space.space_100 * 2.8,
+            backgroundColor: colors.secondary,
+            backgroundImage: AssetImage(
+              data.profileImage,
             ),
-            Text(
-              data.homePage,
-              style: typography.h800.copyWith(color: colors.textSubtlest),
+          ),
+          Text(
+            data.homePage,
+            style: typography.h700.copyWith(color: colors.textSubtlest),
+          ),
+          IconButton(
+            onPressed: () {
+              ref.read(authenticationProvider(context).notifier).logout();
+            },
+            icon: Icon(
+              Icons.logout,
+              size: space.space_400,
+              color: colors.secondary,
             ),
-            CircleAvatar(
-              radius: space.space_300,
-              backgroundColor: colors.primary,
-            ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

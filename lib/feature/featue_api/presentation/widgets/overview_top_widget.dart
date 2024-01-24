@@ -7,9 +7,10 @@ import 'package:movie_app/core/theme/app_theme.dart';
 
 class TopOfOverviewWidget extends ConsumerWidget {
   final String image;
-  final String text;
-  const TopOfOverviewWidget(
-      {super.key, required this.image, required this.text});
+  const TopOfOverviewWidget({
+    super.key,
+    required this.image,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,7 +21,7 @@ class TopOfOverviewWidget extends ConsumerWidget {
     return Stack(
       children: [
         Container(
-          height: space.space_500 * 13,
+          height: space.space_500 * 11.5,
           width: MediaQuery.sizeOf(context).width,
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -43,26 +44,6 @@ class TopOfOverviewWidget extends ConsumerWidget {
             ),
           ),
         ),
-        Positioned(
-          bottom: 0,
-          child: Container(
-            color: colors.secondary.withOpacity(.3),
-            width: MediaQuery.sizeOf(context).width,
-            height: space.space_500 * 1.5,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  text,
-                  textAlign: TextAlign.center,
-                  style: typography.h900.copyWith(
-                    fontSize: space.space_300,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        )
       ],
     );
   }
