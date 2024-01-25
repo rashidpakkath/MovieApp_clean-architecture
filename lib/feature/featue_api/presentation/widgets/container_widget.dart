@@ -18,11 +18,11 @@ class ContainerWidget extends ConsumerWidget {
     final colors = AppTheme.of(context).colors;
     final space = AppTheme.of(context).spaces;
     final data = ref.watch(loginConstansProvider);
-    final datas = ref.watch(movieProvaiderProvider);
     final typography = AppTheme.of(context).typography;
     return SizedBox(
-      height: space.space_500 * 10.6,
-      child: GridView.builder(
+      height: space.space_500 * 5,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
         itemCount: itemCount,
         itemBuilder: (context, index) {
           return Padding(
@@ -31,6 +31,8 @@ class ContainerWidget extends ConsumerWidget {
               onTap: () =>
                   context.push(OverViewPage.routePath, extra: movieData[index]),
               child: Container(
+                height: space.space_500 * 5,
+                width: space.space_500 * 3,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -44,11 +46,6 @@ class ContainerWidget extends ConsumerWidget {
           );
         },
         shrinkWrap: false,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          mainAxisExtent: space.space_500 * 5,
-          mainAxisSpacing: space.space_200,
-        ),
       ),
     );
   }

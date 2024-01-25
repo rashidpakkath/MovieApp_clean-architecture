@@ -10,5 +10,6 @@ class MovieEntity with _$MovieEntity {
     @JsonKey(name: 'poster_path') required String posterPath,
     @JsonKey(name: 'vote_average') required double voteAverage,
     @JsonKey(name: 'original_language') required String originalLanguage,
+    @JsonKey(name: 'backdrop_path') required String backdropPath,
   }) = _MovieEntity;
 }

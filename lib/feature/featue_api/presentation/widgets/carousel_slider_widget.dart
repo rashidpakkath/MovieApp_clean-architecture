@@ -30,8 +30,8 @@ class CarouselSliderWidget extends ConsumerWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               image: DecorationImage(
-                image:
-                    NetworkImage(data.imagePath + movieData[index].posterPath),
+                image: NetworkImage(
+                    data.imagePath + movieData[index].backdropPath),
                 fit: BoxFit.fill,
               ),
             ),

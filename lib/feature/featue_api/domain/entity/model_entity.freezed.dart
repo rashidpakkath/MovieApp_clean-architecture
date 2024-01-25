@@ -26,6 +26,8 @@ mixin _$MovieEntity {
   double get voteAverage => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_language')
   String get originalLanguage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'backdrop_path')
+  String get backdropPath => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MovieEntityCopyWith<MovieEntity> get copyWith =>
@@ -44,7 +46,8 @@ abstract class $MovieEntityCopyWith<$Res> {
       @JsonKey(name: 'release_date') String releaseDate,
       @JsonKey(name: 'poster_path') String posterPath,
       @JsonKey(name: 'vote_average') double voteAverage,
-      @JsonKey(name: 'original_language') String originalLanguage});
+      @JsonKey(name: 'original_language') String originalLanguage,
+      @JsonKey(name: 'backdrop_path') String backdropPath});
 }
 
 /// @nodoc
@@ -66,6 +69,7 @@ class _$MovieEntityCopyWithImpl<$Res, $Val extends MovieEntity>
     Object? posterPath = null,
     Object? voteAverage = null,
     Object? originalLanguage = null,
+    Object? backdropPath = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -92,6 +96,10 @@ class _$MovieEntityCopyWithImpl<$Res, $Val extends MovieEntity>
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
               as String,
+      backdropPath: null == backdropPath
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -110,7 +118,8 @@ abstract class _$$MovieEntityImplCopyWith<$Res>
       @JsonKey(name: 'release_date') String releaseDate,
       @JsonKey(name: 'poster_path') String posterPath,
       @JsonKey(name: 'vote_average') double voteAverage,
-      @JsonKey(name: 'original_language') String originalLanguage});
+      @JsonKey(name: 'original_language') String originalLanguage,
+      @JsonKey(name: 'backdrop_path') String backdropPath});
 }
 
 /// @nodoc
@@ -130,6 +139,7 @@ class __$$MovieEntityImplCopyWithImpl<$Res>
     Object? posterPath = null,
     Object? voteAverage = null,
     Object? originalLanguage = null,
+    Object? backdropPath = null,
   }) {
     return _then(_$MovieEntityImpl(
       title: null == title
@@ -156,6 +166,10 @@ class __$$MovieEntityImplCopyWithImpl<$Res>
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
               as String,
+      backdropPath: null == backdropPath
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -169,7 +183,8 @@ class _$MovieEntityImpl implements _MovieEntity {
       @JsonKey(name: 'release_date') required this.releaseDate,
       @JsonKey(name: 'poster_path') required this.posterPath,
       @JsonKey(name: 'vote_average') required this.voteAverage,
-      @JsonKey(name: 'original_language') required this.originalLanguage});
+      @JsonKey(name: 'original_language') required this.originalLanguage,
+      @JsonKey(name: 'backdrop_path') required this.backdropPath});
 
   @override
   final String title;
@@ -187,10 +202,13 @@ class _$MovieEntityImpl implements _MovieEntity {
   @override
   @JsonKey(name: 'original_language')
   final String originalLanguage;
+  @override
+  @JsonKey(name: 'backdrop_path')
+  final String backdropPath;
 
   @override
   String toString() {
-    return 'MovieEntity(title: $title, overview: $overview, releaseDate: $releaseDate, posterPath: $posterPath, voteAverage: $voteAverage, originalLanguage: $originalLanguage)';
+    return 'MovieEntity(title: $title, overview: $overview, releaseDate: $releaseDate, posterPath: $posterPath, voteAverage: $voteAverage, originalLanguage: $originalLanguage, backdropPath: $backdropPath)';
   }
 
   @override
@@ -208,12 +226,14 @@ class _$MovieEntityImpl implements _MovieEntity {
             (identical(other.voteAverage, voteAverage) ||
                 other.voteAverage == voteAverage) &&
             (identical(other.originalLanguage, originalLanguage) ||
-                other.originalLanguage == originalLanguage));
+                other.originalLanguage == originalLanguage) &&
+            (identical(other.backdropPath, backdropPath) ||
+                other.backdropPath == backdropPath));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, title, overview, releaseDate,
-      posterPath, voteAverage, originalLanguage);
+      posterPath, voteAverage, originalLanguage, backdropPath);
 
   @JsonKey(ignore: true)
   @override
@@ -224,13 +244,15 @@ class _$MovieEntityImpl implements _MovieEntity {
 
 abstract class _MovieEntity implements MovieEntity {
   factory _MovieEntity(
-      {required final String title,
-      required final String overview,
-      @JsonKey(name: 'release_date') required final String releaseDate,
-      @JsonKey(name: 'poster_path') required final String posterPath,
-      @JsonKey(name: 'vote_average') required final double voteAverage,
-      @JsonKey(name: 'original_language')
-      required final String originalLanguage}) = _$MovieEntityImpl;
+          {required final String title,
+          required final String overview,
+          @JsonKey(name: 'release_date') required final String releaseDate,
+          @JsonKey(name: 'poster_path') required final String posterPath,
+          @JsonKey(name: 'vote_average') required final double voteAverage,
+          @JsonKey(name: 'original_language')
+          required final String originalLanguage,
+          @JsonKey(name: 'backdrop_path') required final String backdropPath}) =
+      _$MovieEntityImpl;
 
   @override
   String get title;
@@ -248,6 +270,9 @@ abstract class _MovieEntity implements MovieEntity {
   @override
   @JsonKey(name: 'original_language')
   String get originalLanguage;
+  @override
+  @JsonKey(name: 'backdrop_path')
+  String get backdropPath;
   @override
   @JsonKey(ignore: true)
   _$$MovieEntityImplCopyWith<_$MovieEntityImpl> get copyWith =>

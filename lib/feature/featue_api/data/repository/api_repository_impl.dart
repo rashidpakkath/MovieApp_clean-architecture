@@ -23,6 +23,64 @@ class ApiRepositoryImpl implements ApiRepository {
           posterPath: result.posterPath,
           voteAverage: result.voteAverage,
           originalLanguage: result.originalLanguage,
+          backdropPath: result.backdropPath,
+        ),
+    ];
+    return result;
+  }
+
+  Future<List<MovieEntity>?> getMoviesTopRated() async {
+    final data = await datasource.getMovieTopRated();
+
+    late List<MovieEntity> result;
+    result = [
+      for (final result in data!)
+        MovieEntity(
+          title: result.title,
+          overview: result.overview,
+          releaseDate: result.releaseDate,
+          posterPath: result.posterPath,
+          voteAverage: result.voteAverage,
+          originalLanguage: result.originalLanguage,
+          backdropPath: result.backdropPath,
+        ),
+    ];
+    return result;
+  }
+
+  Future<List<MovieEntity>?> getMoviesPopular() async {
+    final data = await datasource.getMoviePopular();
+
+    late List<MovieEntity> result;
+    result = [
+      for (final result in data!)
+        MovieEntity(
+          title: result.title,
+          overview: result.overview,
+          releaseDate: result.releaseDate,
+          posterPath: result.posterPath,
+          voteAverage: result.voteAverage,
+          originalLanguage: result.originalLanguage,
+          backdropPath: result.backdropPath,
+        ),
+    ];
+    return result;
+  }
+
+  Future<List<MovieEntity>?> getMoviesUpcoming() async {
+    final data = await datasource.getMovieUpcoming();
+
+    late List<MovieEntity> result;
+    result = [
+      for (final result in data!)
+        MovieEntity(
+          title: result.title,
+          overview: result.overview,
+          releaseDate: result.releaseDate,
+          posterPath: result.posterPath,
+          voteAverage: result.voteAverage,
+          originalLanguage: result.originalLanguage,
+          backdropPath: result.backdropPath,
         ),
     ];
     return result;

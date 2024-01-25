@@ -43,15 +43,29 @@ class HomePage extends ConsumerWidget {
                           text: data.newRelease,
                         ),
                         CarouselSliderWidget(
-                          movieData: value!,
-                          itemCount: value.length,
+                          movieData: value.getMoviesNewRelease!,
+                          itemCount: value.getMoviesNewRelease!.length,
+                        ),
+                        TextWidget(
+                          text: data.upcoming,
+                        ),
+                        ContainerWidget(
+                          movieData: value.getMovieUpcoming!,
+                          itemCount: value.getMovieUpcoming!.length,
                         ),
                         TextWidget(
                           text: data.mostWatch,
                         ),
                         ContainerWidget(
-                          movieData: value,
-                          itemCount: value.length,
+                          movieData: value.getMovieTopRated!,
+                          itemCount: value.getMovieTopRated!.length,
+                        ),
+                        TextWidget(
+                          text: data.popular,
+                        ),
+                        ContainerWidget(
+                          movieData: value.getMoviePopular!,
+                          itemCount: value.getMoviePopular!.length,
                         ),
                       ],
                     ),

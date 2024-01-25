@@ -29,11 +29,13 @@ final class LoginConstans {
   final String imagePath = 'https://image.tmdb.org/t/p/w780';
   final String search = 'Search For Movie';
   final String newRelease = 'New Release';
-  final String mostWatch = 'Top Review';
+  final String mostWatch = 'Top Rated';
   final String overView = 'OverView';
+  final String popular = 'Popular Movies';
   final String playButton = 'WATCH TRAILER';
   final String like = 'LIKE';
   final String Comment = 'COMMENT';
+  final String upcoming = 'UpComing';
 }
 
 @riverpod
