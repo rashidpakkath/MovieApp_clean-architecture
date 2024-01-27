@@ -36,6 +36,7 @@ final class LoginConstans {
   final String like = 'LIKE';
   final String Comment = 'COMMENT';
   final String upcoming = 'UpComing';
+  final String favourite = 'FAVOURITE';
 }
 
 @riverpod

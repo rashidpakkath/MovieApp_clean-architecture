@@ -35,6 +35,9 @@ class MovieDetailWidget extends StatelessWidget {
                 Icons.star,
                 color: Colors.yellow,
               ),
+              SizedBox(
+                width: space.space_100 / 2,
+              ),
               Text(
                 rating,
                 style: typography.h600.copyWith(

@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
 import 'package:movie_app/feature/featue_api/presentation/pages/homepage.dart';
 import 'package:movie_app/feature/featue_api/presentation/pages/overview_page.dart';
+import 'package:movie_app/feature/featue_api/presentation/widgets/pageview_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/pages/login_page.dart';
 import 'package:movie_app/feature/feature_create/presentation/pages/phone_signup_page.dart';
 import 'package:movie_app/feature/feature_create/presentation/pages/pin_snakbar_page.dart';
@@ -12,12 +14,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'router.g.dart';
 
 final _router = GoRouter(
-  initialLocation: HomePage.routePath,
+  initialLocation: PageViewWidget.routePath,
   routes: [
     GoRoute(
-      path: HomePage.routePath,
+      path: PageViewWidget.routePath,
       name: 'homepage',
-      builder: (context, state) => const HomePage(),
+      builder: (context, state) => const PageViewWidget(),
       redirect: (context, state) {
         final user = FirebaseAuth.instance.currentUser;
         if (user == null || !user.emailVerified) {

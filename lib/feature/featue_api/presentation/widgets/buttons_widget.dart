@@ -22,7 +22,7 @@ class ButtonsWidget extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         minimumSize: Size(
-          space.space_500 * 4.6,
+          space.space_500 * 3,
           space.space_500 * 1.3,
         ),
         shape: RoundedRectangleBorder(

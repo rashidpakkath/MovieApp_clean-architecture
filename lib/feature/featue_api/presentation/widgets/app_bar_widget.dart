@@ -14,25 +14,22 @@ class AppBarWidget extends ConsumerWidget {
     final space = AppTheme.of(context).spaces;
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
-    return Container(
-      width: MediaQuery.sizeOf(context).width,
-      height: space.space_500 * 2.5,
-      color: colors.textSubtle,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            radius: space.space_100 * 2.8,
-            backgroundColor: colors.secondary,
-            backgroundImage: AssetImage(
-              data.profileImage,
-            ),
+    return Padding(
+      padding: EdgeInsets.all(space.space_100),
+      child: AppBar(
+        backgroundColor: colors.backgroundDanger,
+        title: Text(
+          data.homePage,
+          style: typography.h700.copyWith(color: colors.textSubtlest),
+        ),
+        leading: CircleAvatar(
+          radius: space.space_100 * 2.8,
+          backgroundColor: colors.secondary,
+          backgroundImage: AssetImage(
+            data.profileImage,
           ),
-          Text(
-            data.homePage,
-            style: typography.h700.copyWith(color: colors.textSubtlest),
-          ),
+        ),
+        actions: [
           IconButton(
             onPressed: () {
               ref.read(authenticationProvider(context).notifier).logout();

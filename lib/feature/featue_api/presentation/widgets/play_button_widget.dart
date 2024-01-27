@@ -27,9 +27,14 @@ class PlayButtonWidget extends ConsumerWidget {
             icons: Icon(Icons.thumb_up),
           ),
           ButtonsWidget(
-            color: colors.textInverse,
+            color: colors.textSubtlest,
             text: data.Comment,
             icons: Icon(Icons.message),
+          ),
+          ButtonsWidget(
+            color: colors.textSubtlest,
+            text: data.favourite,
+            icons: Icon(Icons.favorite),
           ),
         ],
       ),

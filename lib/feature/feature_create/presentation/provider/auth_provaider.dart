@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/excepation/Base_excepation.dart';
 import 'package:movie_app/core/utils/snacbar_utils.dart';
+import 'package:movie_app/feature/featue_api/presentation/widgets/pageview_widget.dart';
 import 'package:movie_app/feature/feature_create/data/repository/signup_auth_repository_impl.dart';
 import 'package:movie_app/feature/feature_create/domain/entities/auth_state_entity.dart';
 import 'package:movie_app/feature/feature_create/domain/repository/signup_auth_repository.dart';
@@ -67,7 +68,7 @@ class Authentication extends _$Authentication {
   Future<void> verifyOtp(String otp) async {
     try {
       await VerifiOtpUsecase(repository: repository)(state.verificationId, otp);
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(PageViewWidget.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
@@ -76,7 +77,7 @@ class Authentication extends _$Authentication {
   Future<void> login(String email, String password) async {
     try {
       await LoginUsecase(repository: repository)(email, password);
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(PageViewWidget.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
@@ -85,7 +86,7 @@ class Authentication extends _$Authentication {
   Future<void> googleSignin() async {
     try {
       await GoogleSignInUseCase(repository: repository)();
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(PageViewWidget.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
