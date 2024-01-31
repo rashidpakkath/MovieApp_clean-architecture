@@ -4,6 +4,7 @@ part 'model_entity.freezed.dart';
 @freezed
 class MovieEntity with _$MovieEntity {
   factory MovieEntity({
+    required int id,
     required String title,
     required String overview,
     @JsonKey(name: 'release_date') required String releaseDate,

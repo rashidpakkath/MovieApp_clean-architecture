@@ -27,7 +27,9 @@ class HomePage extends ConsumerWidget {
       backgroundColor: colors.backgroundDanger,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
-        child: AppBarWidget(),
+        child: AppBarWidget(
+          title: data.homePage,
+        ),
       ),
       body: ref.watch(movieProvaiderProvider).isRefreshing
           ? Center(
@@ -37,9 +39,6 @@ class HomePage extends ConsumerWidget {
               ? const Text('NO DATA')
               : switch (ref.watch(movieProvaiderProvider)) {
                   AsyncData(:final value) => SingleChildScrollView(
-                      controller: ref
-                          .read(movieProvaiderProvider.notifier)
-                          .scrollController,
                       child: Column(
                         children: [
                           const SearchBarWidget(),

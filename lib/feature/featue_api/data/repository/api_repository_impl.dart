@@ -17,6 +17,7 @@ class ApiRepositoryImpl implements ApiRepository {
     result = [
       for (final result in data!)
         MovieEntity(
+          id: result.id,
           title: result.title,
           overview: result.overview,
           releaseDate: result.releaseDate,
@@ -36,6 +37,7 @@ class ApiRepositoryImpl implements ApiRepository {
     result = [
       for (final result in data!)
         MovieEntity(
+          id: result.id,
           title: result.title,
           overview: result.overview,
           releaseDate: result.releaseDate,
@@ -55,6 +57,7 @@ class ApiRepositoryImpl implements ApiRepository {
     result = [
       for (final result in data!)
         MovieEntity(
+          id: result.id,
           title: result.title,
           overview: result.overview,
           releaseDate: result.releaseDate,
@@ -74,6 +77,7 @@ class ApiRepositoryImpl implements ApiRepository {
     result = [
       for (final result in data!)
         MovieEntity(
+          id: result.id,
           title: result.title,
           overview: result.overview,
           releaseDate: result.releaseDate,

@@ -19,7 +19,7 @@ final _router = GoRouter(
     GoRoute(
       path: PageViewWidget.routePath,
       name: 'homepage',
-      builder: (context, state) => const PageViewWidget(),
+      builder: (context, state) => PageViewWidget(),
       redirect: (context, state) {
         final user = FirebaseAuth.instance.currentUser;
         if (user == null || !user.emailVerified) {

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +11,10 @@ class BottomNavigationbarWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = AppTheme.of(context).colors;
+    final space = AppTheme.of(context).spaces;
     return CurvedNavigationBar(
-      backgroundColor: colors.textSubtle,
-      color: Colors.white24,
+      backgroundColor: colors.primary,
+      color: colors.secondary,
       index: ref.watch(selected),
       onTap: (value) {
         ref
@@ -23,21 +22,21 @@ class BottomNavigationbarWidget extends ConsumerWidget {
             .pageController
             .jumpToPage(value);
       },
-      items: const [
+      items: [
         Icon(
           CupertinoIcons.home,
-          size: 30,
-          color: Colors.white,
+          size: space.space_400,
+          color: colors.textSubtle,
         ),
         Icon(
           CupertinoIcons.heart,
-          size: 30,
-          color: Colors.white,
+          size: space.space_400,
+          color: colors.textSubtle,
         ),
         Icon(
           CupertinoIcons.person,
-          size: 30,
-          color: Colors.white,
+          size: space.space_400,
+          color: colors.textSubtle,
         ),
       ],
     );

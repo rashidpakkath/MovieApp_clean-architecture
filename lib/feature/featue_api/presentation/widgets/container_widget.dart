@@ -22,7 +22,6 @@ class ContainerWidget extends ConsumerWidget {
     return SizedBox(
       height: space.space_500 * 5,
       child: ListView.builder(
-        controller: ref.read(movieProvaiderProvider.notifier).scrollController,
         scrollDirection: Axis.horizontal,
         itemCount: itemCount,
         itemBuilder: (context, index) {

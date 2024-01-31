@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'model_entity.dart';
+part of 'firestore_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,8 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+FireStoreModel _$FireStoreModelFromJson(Map<String, dynamic> json) {
+  return _FireStoreModel.fromJson(json);
+}
+
 /// @nodoc
-mixin _$MovieEntity {
+mixin _$FireStoreModel {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
@@ -30,16 +34,17 @@ mixin _$MovieEntity {
   @JsonKey(name: 'backdrop_path')
   String get backdropPath => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MovieEntityCopyWith<MovieEntity> get copyWith =>
+  $FireStoreModelCopyWith<FireStoreModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MovieEntityCopyWith<$Res> {
-  factory $MovieEntityCopyWith(
-          MovieEntity value, $Res Function(MovieEntity) then) =
-      _$MovieEntityCopyWithImpl<$Res, MovieEntity>;
+abstract class $FireStoreModelCopyWith<$Res> {
+  factory $FireStoreModelCopyWith(
+          FireStoreModel value, $Res Function(FireStoreModel) then) =
+      _$FireStoreModelCopyWithImpl<$Res, FireStoreModel>;
   @useResult
   $Res call(
       {int id,
@@ -53,9 +58,9 @@ abstract class $MovieEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MovieEntityCopyWithImpl<$Res, $Val extends MovieEntity>
-    implements $MovieEntityCopyWith<$Res> {
-  _$MovieEntityCopyWithImpl(this._value, this._then);
+class _$FireStoreModelCopyWithImpl<$Res, $Val extends FireStoreModel>
+    implements $FireStoreModelCopyWith<$Res> {
+  _$FireStoreModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -112,11 +117,11 @@ class _$MovieEntityCopyWithImpl<$Res, $Val extends MovieEntity>
 }
 
 /// @nodoc
-abstract class _$$MovieEntityImplCopyWith<$Res>
-    implements $MovieEntityCopyWith<$Res> {
-  factory _$$MovieEntityImplCopyWith(
-          _$MovieEntityImpl value, $Res Function(_$MovieEntityImpl) then) =
-      __$$MovieEntityImplCopyWithImpl<$Res>;
+abstract class _$$FireStoreModelImplCopyWith<$Res>
+    implements $FireStoreModelCopyWith<$Res> {
+  factory _$$FireStoreModelImplCopyWith(_$FireStoreModelImpl value,
+          $Res Function(_$FireStoreModelImpl) then) =
+      __$$FireStoreModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -131,11 +136,11 @@ abstract class _$$MovieEntityImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MovieEntityImplCopyWithImpl<$Res>
-    extends _$MovieEntityCopyWithImpl<$Res, _$MovieEntityImpl>
-    implements _$$MovieEntityImplCopyWith<$Res> {
-  __$$MovieEntityImplCopyWithImpl(
-      _$MovieEntityImpl _value, $Res Function(_$MovieEntityImpl) _then)
+class __$$FireStoreModelImplCopyWithImpl<$Res>
+    extends _$FireStoreModelCopyWithImpl<$Res, _$FireStoreModelImpl>
+    implements _$$FireStoreModelImplCopyWith<$Res> {
+  __$$FireStoreModelImplCopyWithImpl(
+      _$FireStoreModelImpl _value, $Res Function(_$FireStoreModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,7 +155,7 @@ class __$$MovieEntityImplCopyWithImpl<$Res>
     Object? originalLanguage = null,
     Object? backdropPath = null,
   }) {
-    return _then(_$MovieEntityImpl(
+    return _then(_$FireStoreModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -188,9 +193,9 @@ class __$$MovieEntityImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$MovieEntityImpl implements _MovieEntity {
-  _$MovieEntityImpl(
+@JsonSerializable()
+class _$FireStoreModelImpl extends _FireStoreModel {
+  _$FireStoreModelImpl(
       {required this.id,
       required this.title,
       required this.overview,
@@ -198,7 +203,11 @@ class _$MovieEntityImpl implements _MovieEntity {
       @JsonKey(name: 'poster_path') required this.posterPath,
       @JsonKey(name: 'vote_average') required this.voteAverage,
       @JsonKey(name: 'original_language') required this.originalLanguage,
-      @JsonKey(name: 'backdrop_path') required this.backdropPath});
+      @JsonKey(name: 'backdrop_path') required this.backdropPath})
+      : super._();
+
+  factory _$FireStoreModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FireStoreModelImplFromJson(json);
 
   @override
   final int id;
@@ -224,14 +233,14 @@ class _$MovieEntityImpl implements _MovieEntity {
 
   @override
   String toString() {
-    return 'MovieEntity(id: $id, title: $title, overview: $overview, releaseDate: $releaseDate, posterPath: $posterPath, voteAverage: $voteAverage, originalLanguage: $originalLanguage, backdropPath: $backdropPath)';
+    return 'FireStoreModel(id: $id, title: $title, overview: $overview, releaseDate: $releaseDate, posterPath: $posterPath, voteAverage: $voteAverage, originalLanguage: $originalLanguage, backdropPath: $backdropPath)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MovieEntityImpl &&
+            other is _$FireStoreModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.overview, overview) ||
@@ -248,6 +257,7 @@ class _$MovieEntityImpl implements _MovieEntity {
                 other.backdropPath == backdropPath));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, title, overview, releaseDate,
       posterPath, voteAverage, originalLanguage, backdropPath);
@@ -255,12 +265,20 @@ class _$MovieEntityImpl implements _MovieEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MovieEntityImplCopyWith<_$MovieEntityImpl> get copyWith =>
-      __$$MovieEntityImplCopyWithImpl<_$MovieEntityImpl>(this, _$identity);
+  _$$FireStoreModelImplCopyWith<_$FireStoreModelImpl> get copyWith =>
+      __$$FireStoreModelImplCopyWithImpl<_$FireStoreModelImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FireStoreModelImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _MovieEntity implements MovieEntity {
-  factory _MovieEntity(
+abstract class _FireStoreModel extends FireStoreModel {
+  factory _FireStoreModel(
           {required final int id,
           required final String title,
           required final String overview,
@@ -270,7 +288,11 @@ abstract class _MovieEntity implements MovieEntity {
           @JsonKey(name: 'original_language')
           required final String originalLanguage,
           @JsonKey(name: 'backdrop_path') required final String backdropPath}) =
-      _$MovieEntityImpl;
+      _$FireStoreModelImpl;
+  _FireStoreModel._() : super._();
+
+  factory _FireStoreModel.fromJson(Map<String, dynamic> json) =
+      _$FireStoreModelImpl.fromJson;
 
   @override
   int get id;
@@ -295,6 +317,6 @@ abstract class _MovieEntity implements MovieEntity {
   String get backdropPath;
   @override
   @JsonKey(ignore: true)
-  _$$MovieEntityImplCopyWith<_$MovieEntityImpl> get copyWith =>
+  _$$FireStoreModelImplCopyWith<_$FireStoreModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

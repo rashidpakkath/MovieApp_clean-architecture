@@ -32,7 +32,7 @@ class OverViewPage extends ConsumerWidget {
                 height: space.space_100,
               ),
               TitleWidget(text: entity.title),
-              const PlayButtonWidget(),
+              PlayButtonWidget(entity: entity),
               MovieDetailWidget(
                 year: entity.releaseDate,
                 rating: entity.voteAverage.round().toString(),

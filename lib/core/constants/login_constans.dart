@@ -15,7 +15,7 @@ final class LoginConstans {
   final String loginAccount = 'Login Your Account';
   final String googleImage = 'assets/images/login_google.png';
   final String profileImage =
-      'assets/images/—Pngtree—profile glyph black icon_4008321.png';
+      'assets/images/image-from-rawpixel-id-6012974-png.png';
   final String signUpWith = 'SignIn With Google';
   final String signIn = 'SignUp with';
   final String phoneNumber = 'PHONE NUMBER';
@@ -37,6 +37,7 @@ final class LoginConstans {
   final String Comment = 'COMMENT';
   final String upcoming = 'UpComing';
   final String favourite = 'FAVOURITE';
+  final String profile = "PROFILE";
 }
 
 @riverpod

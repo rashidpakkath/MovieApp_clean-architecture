@@ -6,17 +6,19 @@ class ButtonsWidget extends StatelessWidget {
   final String text;
   final Color color;
   final Icon icons;
-  const ButtonsWidget(
+  final void Function()? onPressed;
+  ButtonsWidget(
       {super.key,
       required this.color,
       required this.text,
-      required this.icons});
+      required this.icons,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     final space = AppTheme.of(context).spaces;
     return ElevatedButton.icon(
-      onPressed: () {},
+      onPressed: onPressed,
       icon: icons,
       label: Text(text),
       style: ElevatedButton.styleFrom(

@@ -1,8 +1,10 @@
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:movie_app/core/constants/api_constance.dart';
 import 'package:movie_app/feature/featue_api/data/data_Source/api_services_datasource.dart';
+import 'package:movie_app/feature/featue_api/data/model/firestore_model.dart';
 import 'package:movie_app/feature/featue_api/data/model/movie_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

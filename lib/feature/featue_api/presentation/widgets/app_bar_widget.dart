@@ -6,7 +6,8 @@ import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/feature_create/presentation/provider/auth_provaider.dart';
 
 class AppBarWidget extends ConsumerWidget {
-  const AppBarWidget({super.key});
+  final String title;
+  const AppBarWidget({super.key, required this.title});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -14,34 +15,32 @@ class AppBarWidget extends ConsumerWidget {
     final space = AppTheme.of(context).spaces;
     final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
-    return Padding(
-      padding: EdgeInsets.all(space.space_100),
-      child: AppBar(
-        backgroundColor: colors.backgroundDanger,
-        title: Text(
-          data.homePage,
-          style: typography.h700.copyWith(color: colors.textSubtlest),
-        ),
-        leading: CircleAvatar(
-          radius: space.space_100 * 2.8,
-          backgroundColor: colors.secondary,
-          backgroundImage: AssetImage(
-            data.profileImage,
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              ref.read(authenticationProvider(context).notifier).logout();
-            },
-            icon: Icon(
-              Icons.logout,
-              size: space.space_400,
-              color: colors.secondary,
-            ),
-          )
-        ],
+    return AppBar(
+      backgroundColor: colors.backgroundDanger,
+      title: Text(
+        title,
+        style: typography.h600.copyWith(color: colors.textSubtlest),
       ),
+      leading: IconButton(
+        onPressed: () {},
+        icon: Icon(
+          Icons.menu,
+          size: space.space_400,
+          color: colors.secondary,
+        ),
+      ),
+      // actions: [
+      //   IconButton(
+      //     onPressed: () {
+      //       ref.read(authenticationProvider(context).notifier).logout();
+      //     },
+      //     icon: Icon(
+      //       Icons.logout,
+      //       size: space.space_400,
+      //       color: colors.secondary,
+      //     ),
+      //   )
+      // ],
     );
   }
 }
