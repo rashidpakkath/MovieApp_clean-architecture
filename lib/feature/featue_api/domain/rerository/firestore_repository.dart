@@ -6,5 +6,6 @@ abstract class FireStoreRepository {
   Future<void> createCollection(
     MovieEntity storeModel,
   );
+  Future<void> deleteCollection(String id);
   Stream<List<MovieEntity>> getCollection();
 }

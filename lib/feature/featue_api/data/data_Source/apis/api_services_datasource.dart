@@ -5,4 +5,5 @@ abstract class ApiServcesDatasource {
   Future<List<MovieModel>?> getMovieTopRated();
   Future<List<MovieModel>?> getMoviePopular();
   Future<List<MovieModel>?> getMovieUpcoming();
+  Future<List<MovieModel>?> searchMovie(String movieName);
 }

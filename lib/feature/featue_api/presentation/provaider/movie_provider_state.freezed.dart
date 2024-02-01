@@ -21,6 +21,7 @@ mixin _$MovieProviderState {
   List<MovieEntity>? get getMovieTopRated => throw _privateConstructorUsedError;
   List<MovieEntity>? get getMoviePopular => throw _privateConstructorUsedError;
   List<MovieEntity>? get getMovieUpcoming => throw _privateConstructorUsedError;
+  List<MovieEntity>? get searchMovie => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MovieProviderStateCopyWith<MovieProviderState> get copyWith =>
@@ -37,7 +38,8 @@ abstract class $MovieProviderStateCopyWith<$Res> {
       {List<MovieEntity>? getMoviesNewRelease,
       List<MovieEntity>? getMovieTopRated,
       List<MovieEntity>? getMoviePopular,
-      List<MovieEntity>? getMovieUpcoming});
+      List<MovieEntity>? getMovieUpcoming,
+      List<MovieEntity>? searchMovie});
 }
 
 /// @nodoc
@@ -57,6 +59,7 @@ class _$MovieProviderStateCopyWithImpl<$Res, $Val extends MovieProviderState>
     Object? getMovieTopRated = freezed,
     Object? getMoviePopular = freezed,
     Object? getMovieUpcoming = freezed,
+    Object? searchMovie = freezed,
   }) {
     return _then(_value.copyWith(
       getMoviesNewRelease: freezed == getMoviesNewRelease
@@ -75,6 +78,10 @@ class _$MovieProviderStateCopyWithImpl<$Res, $Val extends MovieProviderState>
           ? _value.getMovieUpcoming
           : getMovieUpcoming // ignore: cast_nullable_to_non_nullable
               as List<MovieEntity>?,
+      searchMovie: freezed == searchMovie
+          ? _value.searchMovie
+          : searchMovie // ignore: cast_nullable_to_non_nullable
+              as List<MovieEntity>?,
     ) as $Val);
   }
 }
@@ -91,7 +98,8 @@ abstract class _$$MovieProviderStateImplCopyWith<$Res>
       {List<MovieEntity>? getMoviesNewRelease,
       List<MovieEntity>? getMovieTopRated,
       List<MovieEntity>? getMoviePopular,
-      List<MovieEntity>? getMovieUpcoming});
+      List<MovieEntity>? getMovieUpcoming,
+      List<MovieEntity>? searchMovie});
 }
 
 /// @nodoc
@@ -109,6 +117,7 @@ class __$$MovieProviderStateImplCopyWithImpl<$Res>
     Object? getMovieTopRated = freezed,
     Object? getMoviePopular = freezed,
     Object? getMovieUpcoming = freezed,
+    Object? searchMovie = freezed,
   }) {
     return _then(_$MovieProviderStateImpl(
       getMoviesNewRelease: freezed == getMoviesNewRelease
@@ -127,6 +136,10 @@ class __$$MovieProviderStateImplCopyWithImpl<$Res>
           ? _value._getMovieUpcoming
           : getMovieUpcoming // ignore: cast_nullable_to_non_nullable
               as List<MovieEntity>?,
+      searchMovie: freezed == searchMovie
+          ? _value._searchMovie
+          : searchMovie // ignore: cast_nullable_to_non_nullable
+              as List<MovieEntity>?,
     ));
   }
 }
@@ -138,11 +151,13 @@ class _$MovieProviderStateImpl implements _MovieProviderState {
       {required final List<MovieEntity>? getMoviesNewRelease,
       required final List<MovieEntity>? getMovieTopRated,
       required final List<MovieEntity>? getMoviePopular,
-      required final List<MovieEntity>? getMovieUpcoming})
+      required final List<MovieEntity>? getMovieUpcoming,
+      required final List<MovieEntity>? searchMovie})
       : _getMoviesNewRelease = getMoviesNewRelease,
         _getMovieTopRated = getMovieTopRated,
         _getMoviePopular = getMoviePopular,
-        _getMovieUpcoming = getMovieUpcoming;
+        _getMovieUpcoming = getMovieUpcoming,
+        _searchMovie = searchMovie;
 
   final List<MovieEntity>? _getMoviesNewRelease;
   @override
@@ -187,9 +202,19 @@ class _$MovieProviderStateImpl implements _MovieProviderState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<MovieEntity>? _searchMovie;
+  @override
+  List<MovieEntity>? get searchMovie {
+    final value = _searchMovie;
+    if (value == null) return null;
+    if (_searchMovie is EqualUnmodifiableListView) return _searchMovie;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'MovieProviderState(getMoviesNewRelease: $getMoviesNewRelease, getMovieTopRated: $getMovieTopRated, getMoviePopular: $getMoviePopular, getMovieUpcoming: $getMovieUpcoming)';
+    return 'MovieProviderState(getMoviesNewRelease: $getMoviesNewRelease, getMovieTopRated: $getMovieTopRated, getMoviePopular: $getMoviePopular, getMovieUpcoming: $getMovieUpcoming, searchMovie: $searchMovie)';
   }
 
   @override
@@ -204,7 +229,9 @@ class _$MovieProviderStateImpl implements _MovieProviderState {
             const DeepCollectionEquality()
                 .equals(other._getMoviePopular, _getMoviePopular) &&
             const DeepCollectionEquality()
-                .equals(other._getMovieUpcoming, _getMovieUpcoming));
+                .equals(other._getMovieUpcoming, _getMovieUpcoming) &&
+            const DeepCollectionEquality()
+                .equals(other._searchMovie, _searchMovie));
   }
 
   @override
@@ -213,7 +240,8 @@ class _$MovieProviderStateImpl implements _MovieProviderState {
       const DeepCollectionEquality().hash(_getMoviesNewRelease),
       const DeepCollectionEquality().hash(_getMovieTopRated),
       const DeepCollectionEquality().hash(_getMoviePopular),
-      const DeepCollectionEquality().hash(_getMovieUpcoming));
+      const DeepCollectionEquality().hash(_getMovieUpcoming),
+      const DeepCollectionEquality().hash(_searchMovie));
 
   @JsonKey(ignore: true)
   @override
@@ -228,7 +256,8 @@ abstract class _MovieProviderState implements MovieProviderState {
           {required final List<MovieEntity>? getMoviesNewRelease,
           required final List<MovieEntity>? getMovieTopRated,
           required final List<MovieEntity>? getMoviePopular,
-          required final List<MovieEntity>? getMovieUpcoming}) =
+          required final List<MovieEntity>? getMovieUpcoming,
+          required final List<MovieEntity>? searchMovie}) =
       _$MovieProviderStateImpl;
 
   @override
@@ -239,6 +268,8 @@ abstract class _MovieProviderState implements MovieProviderState {
   List<MovieEntity>? get getMoviePopular;
   @override
   List<MovieEntity>? get getMovieUpcoming;
+  @override
+  List<MovieEntity>? get searchMovie;
   @override
   @JsonKey(ignore: true)
   _$$MovieProviderStateImplCopyWith<_$MovieProviderStateImpl> get copyWith =>

@@ -24,19 +24,19 @@ mixin _$MovieModel {
   String get title => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   @JsonKey(name: 'release_date')
-  String get releaseDate => throw _privateConstructorUsedError;
+  String? get releaseDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
-  String get posterPath => throw _privateConstructorUsedError;
+  String? get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'backdrop_path')
-  String get backdropPath => throw _privateConstructorUsedError;
+  String? get backdropPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'adult')
   bool get adult => throw _privateConstructorUsedError;
   @JsonKey(name: 'genre_ids')
   List<int> get genreIds => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_language')
-  String get originalLanguage => throw _privateConstructorUsedError;
+  String? get originalLanguage => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_title')
-  String get originalTitle => throw _privateConstructorUsedError;
+  String? get originalTitle => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'video')
   bool get video => throw _privateConstructorUsedError;
@@ -61,13 +61,13 @@ abstract class $MovieModelCopyWith<$Res> {
       {int id,
       String title,
       String overview,
-      @JsonKey(name: 'release_date') String releaseDate,
-      @JsonKey(name: 'poster_path') String posterPath,
-      @JsonKey(name: 'backdrop_path') String backdropPath,
+      @JsonKey(name: 'release_date') String? releaseDate,
+      @JsonKey(name: 'poster_path') String? posterPath,
+      @JsonKey(name: 'backdrop_path') String? backdropPath,
       @JsonKey(name: 'adult') bool adult,
       @JsonKey(name: 'genre_ids') List<int> genreIds,
-      @JsonKey(name: 'original_language') String originalLanguage,
-      @JsonKey(name: 'original_title') String originalTitle,
+      @JsonKey(name: 'original_language') String? originalLanguage,
+      @JsonKey(name: 'original_title') String? originalTitle,
       double popularity,
       @JsonKey(name: 'video') bool video,
       @JsonKey(name: 'vote_average') double voteAverage,
@@ -90,13 +90,13 @@ class _$MovieModelCopyWithImpl<$Res, $Val extends MovieModel>
     Object? id = null,
     Object? title = null,
     Object? overview = null,
-    Object? releaseDate = null,
-    Object? posterPath = null,
-    Object? backdropPath = null,
+    Object? releaseDate = freezed,
+    Object? posterPath = freezed,
+    Object? backdropPath = freezed,
     Object? adult = null,
     Object? genreIds = null,
-    Object? originalLanguage = null,
-    Object? originalTitle = null,
+    Object? originalLanguage = freezed,
+    Object? originalTitle = freezed,
     Object? popularity = null,
     Object? video = null,
     Object? voteAverage = null,
@@ -115,18 +115,18 @@ class _$MovieModelCopyWithImpl<$Res, $Val extends MovieModel>
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
               as String,
-      releaseDate: null == releaseDate
+      releaseDate: freezed == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      posterPath: null == posterPath
+              as String?,
+      posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      backdropPath: null == backdropPath
+              as String?,
+      backdropPath: freezed == backdropPath
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       adult: null == adult
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
@@ -135,14 +135,14 @@ class _$MovieModelCopyWithImpl<$Res, $Val extends MovieModel>
           ? _value.genreIds
           : genreIds // ignore: cast_nullable_to_non_nullable
               as List<int>,
-      originalLanguage: null == originalLanguage
+      originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
-      originalTitle: null == originalTitle
+              as String?,
+      originalTitle: freezed == originalTitle
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       popularity: null == popularity
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
@@ -175,13 +175,13 @@ abstract class _$$MovieModelImplCopyWith<$Res>
       {int id,
       String title,
       String overview,
-      @JsonKey(name: 'release_date') String releaseDate,
-      @JsonKey(name: 'poster_path') String posterPath,
-      @JsonKey(name: 'backdrop_path') String backdropPath,
+      @JsonKey(name: 'release_date') String? releaseDate,
+      @JsonKey(name: 'poster_path') String? posterPath,
+      @JsonKey(name: 'backdrop_path') String? backdropPath,
       @JsonKey(name: 'adult') bool adult,
       @JsonKey(name: 'genre_ids') List<int> genreIds,
-      @JsonKey(name: 'original_language') String originalLanguage,
-      @JsonKey(name: 'original_title') String originalTitle,
+      @JsonKey(name: 'original_language') String? originalLanguage,
+      @JsonKey(name: 'original_title') String? originalTitle,
       double popularity,
       @JsonKey(name: 'video') bool video,
       @JsonKey(name: 'vote_average') double voteAverage,
@@ -202,13 +202,13 @@ class __$$MovieModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? overview = null,
-    Object? releaseDate = null,
-    Object? posterPath = null,
-    Object? backdropPath = null,
+    Object? releaseDate = freezed,
+    Object? posterPath = freezed,
+    Object? backdropPath = freezed,
     Object? adult = null,
     Object? genreIds = null,
-    Object? originalLanguage = null,
-    Object? originalTitle = null,
+    Object? originalLanguage = freezed,
+    Object? originalTitle = freezed,
     Object? popularity = null,
     Object? video = null,
     Object? voteAverage = null,
@@ -227,18 +227,18 @@ class __$$MovieModelImplCopyWithImpl<$Res>
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
               as String,
-      releaseDate: null == releaseDate
+      releaseDate: freezed == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      posterPath: null == posterPath
+              as String?,
+      posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      backdropPath: null == backdropPath
+              as String?,
+      backdropPath: freezed == backdropPath
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       adult: null == adult
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
@@ -247,14 +247,14 @@ class __$$MovieModelImplCopyWithImpl<$Res>
           ? _value._genreIds
           : genreIds // ignore: cast_nullable_to_non_nullable
               as List<int>,
-      originalLanguage: null == originalLanguage
+      originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
-      originalTitle: null == originalTitle
+              as String?,
+      originalTitle: freezed == originalTitle
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       popularity: null == popularity
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
@@ -306,13 +306,13 @@ class _$MovieModelImpl implements _MovieModel {
   final String overview;
   @override
   @JsonKey(name: 'release_date')
-  final String releaseDate;
+  final String? releaseDate;
   @override
   @JsonKey(name: 'poster_path')
-  final String posterPath;
+  final String? posterPath;
   @override
   @JsonKey(name: 'backdrop_path')
-  final String backdropPath;
+  final String? backdropPath;
   @override
   @JsonKey(name: 'adult')
   final bool adult;
@@ -327,10 +327,10 @@ class _$MovieModelImpl implements _MovieModel {
 
   @override
   @JsonKey(name: 'original_language')
-  final String originalLanguage;
+  final String? originalLanguage;
   @override
   @JsonKey(name: 'original_title')
-  final String originalTitle;
+  final String? originalTitle;
   @override
   final double popularity;
   @override
@@ -416,14 +416,14 @@ abstract class _MovieModel implements MovieModel {
           {required final int id,
           required final String title,
           required final String overview,
-          @JsonKey(name: 'release_date') required final String releaseDate,
-          @JsonKey(name: 'poster_path') required final String posterPath,
-          @JsonKey(name: 'backdrop_path') required final String backdropPath,
+          @JsonKey(name: 'release_date') required final String? releaseDate,
+          @JsonKey(name: 'poster_path') required final String? posterPath,
+          @JsonKey(name: 'backdrop_path') required final String? backdropPath,
           @JsonKey(name: 'adult') required final bool adult,
           @JsonKey(name: 'genre_ids') required final List<int> genreIds,
           @JsonKey(name: 'original_language')
-          required final String originalLanguage,
-          @JsonKey(name: 'original_title') required final String originalTitle,
+          required final String? originalLanguage,
+          @JsonKey(name: 'original_title') required final String? originalTitle,
           required final double popularity,
           @JsonKey(name: 'video') required final bool video,
           @JsonKey(name: 'vote_average') required final double voteAverage,
@@ -441,13 +441,13 @@ abstract class _MovieModel implements MovieModel {
   String get overview;
   @override
   @JsonKey(name: 'release_date')
-  String get releaseDate;
+  String? get releaseDate;
   @override
   @JsonKey(name: 'poster_path')
-  String get posterPath;
+  String? get posterPath;
   @override
   @JsonKey(name: 'backdrop_path')
-  String get backdropPath;
+  String? get backdropPath;
   @override
   @JsonKey(name: 'adult')
   bool get adult;
@@ -456,10 +456,10 @@ abstract class _MovieModel implements MovieModel {
   List<int> get genreIds;
   @override
   @JsonKey(name: 'original_language')
-  String get originalLanguage;
+  String? get originalLanguage;
   @override
   @JsonKey(name: 'original_title')
-  String get originalTitle;
+  String? get originalTitle;
   @override
   double get popularity;
   @override

@@ -22,7 +22,7 @@ class FavouritePage extends ConsumerWidget {
         centerTitle: true,
         title: Text(
           data.favourite,
-          style: typography.h600.copyWith(color: colors.textSubtlest),
+          style: typography.h600.copyWith(color: colors.textSubtle),
         ),
       ),
       body: StreamBuilder(

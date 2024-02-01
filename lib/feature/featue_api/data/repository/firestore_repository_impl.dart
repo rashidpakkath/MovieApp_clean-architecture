@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movie_app/feature/featue_api/data/data_Source/firestore_data_source.dart';
-import 'package:movie_app/feature/featue_api/data/data_Source/firestore_data_source_impl.dart';
+import 'package:movie_app/feature/featue_api/data/data_Source/firestore/firestore_data_source.dart';
+import 'package:movie_app/feature/featue_api/data/data_Source/firestore/firestore_data_source_impl.dart';
 import 'package:movie_app/feature/featue_api/data/model/firestore_model.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
 import 'package:movie_app/feature/featue_api/domain/rerository/firestore_repository.dart';
@@ -46,6 +46,11 @@ class FireStoreRepositoryImpl implements FireStoreRepository {
           ),
       ];
     }
+  }
+
+  @override
+  Future<void> deleteCollection(String id) async {
+    await dataSource.deleteCollection(id);
   }
 }
 

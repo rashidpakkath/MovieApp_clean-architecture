@@ -5,5 +5,8 @@ abstract class FireStoreDataSource {
   Future<void> createCollection(
     FireStoreModel fireStoreModel,
   );
+  Future<void> deleteCollection(
+    String id,
+  );
   Stream<QuerySnapshot<FireStoreModel>> getCollection();
 }

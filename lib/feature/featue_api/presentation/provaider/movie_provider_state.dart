@@ -10,5 +10,6 @@ class MovieProviderState with _$MovieProviderState {
     required List<MovieEntity>? getMovieTopRated,
     required List<MovieEntity>? getMoviePopular,
     required List<MovieEntity>? getMovieUpcoming,
+    required List<MovieEntity>? searchMovie,
   }) = _MovieProviderState;
 }

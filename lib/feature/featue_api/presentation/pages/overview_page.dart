@@ -3,11 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
+import 'package:movie_app/feature/featue_api/presentation/provaider/movie_provaider.dart';
+import 'package:movie_app/feature/featue_api/presentation/widgets/comment_listview_widget.dart';
 import 'package:movie_app/feature/featue_api/presentation/widgets/moviedetails_widget.dart';
 import 'package:movie_app/feature/featue_api/presentation/widgets/overview_text_widget.dart';
 import 'package:movie_app/feature/featue_api/presentation/widgets/overview_top_widget.dart';
 import 'package:movie_app/feature/featue_api/presentation/widgets/play_button_widget.dart';
 import 'package:movie_app/feature/featue_api/presentation/widgets/play_trailer_widget.dart';
+import 'package:movie_app/feature/featue_api/presentation/widgets/text_widget.dart';
 import 'package:movie_app/feature/featue_api/presentation/widgets/title_widget.dart';
 
 class OverViewPage extends ConsumerWidget {
@@ -40,6 +43,24 @@ class OverViewPage extends ConsumerWidget {
               ),
               OverViewTextWidget(title: entity.overview),
               const PlayTrailerWidget(),
+              TextWidget(text: data.comment),
+              StreamBuilder(
+                  stream: ref
+                      .read(movieProvaiderProvider.notifier)
+                      .getCommentCollection(
+                        entity.id.toString(),
+                      ),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return CommentListViewWidget(
+                        entitycomment: snapshot.data!,
+                      );
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  }),
             ],
           ),
         ));

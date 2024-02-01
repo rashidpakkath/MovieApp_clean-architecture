@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
 import 'package:movie_app/feature/featue_api/presentation/pages/homepage.dart';
 import 'package:movie_app/feature/featue_api/presentation/pages/overview_page.dart';
+import 'package:movie_app/feature/featue_api/presentation/pages/searchpage.dart';
 import 'package:movie_app/feature/featue_api/presentation/widgets/pageview_widget.dart';
 import 'package:movie_app/feature/feature_create/presentation/pages/login_page.dart';
 import 'package:movie_app/feature/feature_create/presentation/pages/phone_signup_page.dart';
@@ -54,6 +55,11 @@ final _router = GoRouter(
       builder: (context, state) => OverViewPage(
         entity: state.extra as MovieEntity,
       ),
+    ),
+    GoRoute(
+      path: SearchPage.routePath,
+      name: 'search',
+      builder: (context, state) => const SearchPage(),
     )
   ],
 );

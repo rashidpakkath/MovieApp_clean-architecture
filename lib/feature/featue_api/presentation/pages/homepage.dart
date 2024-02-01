@@ -41,7 +41,7 @@ class HomePage extends ConsumerWidget {
                   AsyncData(:final value) => SingleChildScrollView(
                       child: Column(
                         children: [
-                          const SearchBarWidget(),
+                          // const SearchBarWidget(),
                           SizedBox(
                             height: space.space_100,
                           ),

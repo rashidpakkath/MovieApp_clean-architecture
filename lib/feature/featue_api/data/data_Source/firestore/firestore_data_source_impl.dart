@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:movie_app/feature/featue_api/data/data_Source/firestore_data_source.dart';
+import 'package:movie_app/feature/featue_api/data/data_Source/firestore/firestore_data_source.dart';
 import 'package:movie_app/feature/featue_api/data/model/firestore_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -21,6 +21,11 @@ class FireStoreDataSourceImpl implements FireStoreDataSource {
   @override
   Stream<QuerySnapshot<FireStoreModel>> getCollection() {
     return movieRef.snapshots();
+  }
+
+  @override
+  Future<void> deleteCollection(String id) async {
+    await movieRef.doc(id).delete();
   }
 }
 

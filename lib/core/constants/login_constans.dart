@@ -34,10 +34,18 @@ final class LoginConstans {
   final String popular = 'Popular Movies';
   final String playButton = 'WATCH TRAILER';
   final String like = 'LIKE';
-  final String Comment = 'COMMENT';
+  final String comment = 'COMMENT';
   final String upcoming = 'UpComing';
   final String favourite = 'FAVOURITE';
   final String profile = "PROFILE";
+  final String settings = 'Settings';
+  final String name = 'Rashi';
+  final String help = 'Help';
+  final String account = 'Account';
+  final String privacy = 'Privacy';
+  final String notification = 'Notification';
+  final String enterPleace = 'Pleace Enter';
+  final String addReview = 'Add Review';
 }
 
 @riverpod

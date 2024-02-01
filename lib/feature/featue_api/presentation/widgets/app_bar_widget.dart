@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
+import 'package:movie_app/feature/featue_api/presentation/pages/searchpage.dart';
 import 'package:movie_app/feature/feature_create/presentation/provider/auth_provaider.dart';
 
 class AppBarWidget extends ConsumerWidget {
@@ -17,9 +19,10 @@ class AppBarWidget extends ConsumerWidget {
     final typography = AppTheme.of(context).typography;
     return AppBar(
       backgroundColor: colors.backgroundDanger,
+      centerTitle: true,
       title: Text(
         title,
-        style: typography.h600.copyWith(color: colors.textSubtlest),
+        style: typography.h600.copyWith(color: colors.textSubtle),
       ),
       leading: IconButton(
         onPressed: () {},
@@ -29,18 +32,18 @@ class AppBarWidget extends ConsumerWidget {
           color: colors.secondary,
         ),
       ),
-      // actions: [
-      //   IconButton(
-      //     onPressed: () {
-      //       ref.read(authenticationProvider(context).notifier).logout();
-      //     },
-      //     icon: Icon(
-      //       Icons.logout,
-      //       size: space.space_400,
-      //       color: colors.secondary,
-      //     ),
-      //   )
-      // ],
+      actions: [
+        IconButton(
+          onPressed: () {
+            context.push(SearchPage.routePath);
+          },
+          icon: Icon(
+            Icons.search,
+            size: space.space_300,
+            color: colors.secondary,
+          ),
+        )
+      ],
     );
   }
 }

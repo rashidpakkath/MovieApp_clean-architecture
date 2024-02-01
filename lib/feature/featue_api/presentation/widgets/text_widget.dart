@@ -20,7 +20,7 @@ class TextWidget extends StatelessWidget {
           children: [
             Text(
               text,
-              style: typography.h700.copyWith(color: colors.secondary),
+              style: typography.h700.copyWith(color: colors.textSubtlest),
             ),
           ],
         ),

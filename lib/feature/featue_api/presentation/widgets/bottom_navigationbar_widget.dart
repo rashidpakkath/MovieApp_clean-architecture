@@ -13,8 +13,8 @@ class BottomNavigationbarWidget extends ConsumerWidget {
     final colors = AppTheme.of(context).colors;
     final space = AppTheme.of(context).spaces;
     return CurvedNavigationBar(
-      backgroundColor: colors.primary,
-      color: colors.secondary,
+      backgroundColor: colors.backgroundDanger,
+      color: colors.primary,
       index: ref.watch(selected),
       onTap: (value) {
         ref

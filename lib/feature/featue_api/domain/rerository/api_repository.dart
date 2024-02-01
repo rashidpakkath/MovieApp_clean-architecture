@@ -5,4 +5,5 @@ abstract class ApiRepository {
   Future<List<MovieEntity>?> getMoviesTopRated();
   Future<List<MovieEntity>?> getMoviesPopular();
   Future<List<MovieEntity>?> getMoviesUpcoming();
+  Future<List<MovieEntity>?> searchMovie(String movieName);
 }

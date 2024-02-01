@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:movie_app/core/constants/api_constance.dart';
-import 'package:movie_app/feature/featue_api/data/data_Source/api_services_datasource.dart';
+import 'package:movie_app/feature/featue_api/data/data_Source/apis/api_services_datasource.dart';
 import 'package:movie_app/feature/featue_api/data/model/firestore_model.dart';
 import 'package:movie_app/feature/featue_api/data/model/movie_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -16,6 +16,7 @@ class ApiServcesDatasourceImpl implements ApiServcesDatasource {
   static const linkTopRated = ApiConstance.urlLinkTop;
   static const linkPopular = ApiConstance.urlLinkPopular;
   static const linkUpcoming = ApiConstance.urlLinkUpcoming;
+  static const searchMovies = ApiConstance.searchMovie;
   static const tocken = ApiConstance.tocken;
 
   @override
@@ -95,6 +96,30 @@ class ApiServcesDatasourceImpl implements ApiServcesDatasource {
       }
       return null;
     } catch (e) {}
+    return null;
+  }
+
+  @override
+  Future<List<MovieModel>?> searchMovie(String movieName) async {
+    try {
+      dio.options.headers["Authorization"] = tocken;
+      final response = await dio.get(searchMovies, queryParameters: {
+        "query": movieName,
+      });
+      if (response.statusCode == 200) {
+        final data = response.data;
+
+        final movies = <MovieModel>[];
+
+        for (final result in data['results']) {
+          movies.add(MovieModel.fromJson(result));
+        }
+        return movies;
+      }
+      return null;
+    } catch (e) {
+      print(e);
+    }
     return null;
   }
 }

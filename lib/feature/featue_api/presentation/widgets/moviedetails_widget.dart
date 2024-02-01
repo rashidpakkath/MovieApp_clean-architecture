@@ -17,34 +17,53 @@ class MovieDetailWidget extends StatelessWidget {
     final space = AppTheme.of(context).spaces;
     // final data = ref.watch(loginConstansProvider);
     final typography = AppTheme.of(context).typography;
-    return Container(
+    return SizedBox(
       width: MediaQuery.sizeOf(context).width / 1.1,
       height: space.space_500,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            year,
-            style: typography.h600.copyWith(
-              color: colors.secondary,
+          Container(
+            width: space.space_500 * 3,
+            height: space.space_400,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(space.space_100),
+              color: colors.secondary.withOpacity(.6),
             ),
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.star,
-                color: Colors.yellow,
-              ),
-              SizedBox(
-                width: space.space_100 / 2,
-              ),
-              Text(
-                rating,
+            child: Center(
+              child: Text(
+                year,
                 style: typography.h600.copyWith(
                   color: colors.secondary,
                 ),
               ),
-            ],
+            ),
+          ),
+          Container(
+            width: space.space_500 * 2,
+            height: space.space_400,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(space.space_100),
+              color: colors.secondary.withOpacity(.6),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.star,
+                  color: Colors.yellow,
+                ),
+                SizedBox(
+                  width: space.space_100 / 2,
+                ),
+                Text(
+                  rating,
+                  style: typography.h600.copyWith(
+                    color: colors.secondary,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
