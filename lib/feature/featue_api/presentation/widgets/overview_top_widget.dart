@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,9 +14,6 @@ class TopOfOverviewWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final space = AppTheme.of(context).spaces;
-    final data = ref.watch(loginConstansProvider);
-    final typography = AppTheme.of(context).typography;
-    final colors = AppTheme.of(context).colors;
     return Stack(
       children: [
         Container(

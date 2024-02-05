@@ -1,4 +1,5 @@
 class ApiConstance {
+  static const String baseUrl = 'https://image.tmdb.org/t/p/w780';
   static const String urlLink = 'https://api.themoviedb.org/3/discover/movie';
   static const String urlLinkTop =
       'https://api.themoviedb.org/3/movie/top_rated';

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -5,7 +7,6 @@ import 'package:movie_app/core/constants/login_constans.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
 import 'package:movie_app/feature/featue_api/presentation/pages/overview_page.dart';
-import 'package:movie_app/feature/featue_api/presentation/provaider/movie_provaider.dart';
 
 class ContainerWidget extends ConsumerWidget {
   List<MovieEntity> movieData;
@@ -25,6 +26,14 @@ class ContainerWidget extends ConsumerWidget {
         scrollDirection: Axis.horizontal,
         itemCount: itemCount,
         itemBuilder: (context, index) {
+          final posterPathFile = File(movieData[index].posterPath);
+
+          late final ImageProvider image;
+          if (posterPathFile.existsSync()) {
+            image = FileImage(posterPathFile);
+          } else {
+            image = NetworkImage(data.imagePath + movieData[index].posterPath);
+          }
           return Padding(
             padding: EdgeInsets.all(space.space_100),
             child: InkWell(
@@ -36,8 +45,7 @@ class ContainerWidget extends ConsumerWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
-                    image: NetworkImage(
-                        data.imagePath + movieData[index].posterPath),
+                    image: image,
                     fit: BoxFit.cover,
                   ),
                 ),

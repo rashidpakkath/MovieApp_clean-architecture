@@ -1,13 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/core/excepation/Base_excepation.dart';
 import 'package:movie_app/core/utils/snacbar_utils.dart';
-import 'package:movie_app/feature/featue_api/data/data_Source/firestore/firestore_data_source_impl.dart';
 import 'package:movie_app/feature/featue_api/data/repository/api_repository_impl.dart';
 import 'package:movie_app/feature/featue_api/data/repository/comment_repository_impl.dart';
 import 'package:movie_app/feature/featue_api/data/repository/firestore_repository_impl.dart';
+import 'package:movie_app/feature/featue_api/data/repository/objectbox_repository_impl.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/comment_entity.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
 import 'package:movie_app/feature/featue_api/domain/usecase/comment_usecase.dart';
@@ -32,12 +30,25 @@ class MovieProvaider extends _$MovieProvaider {
   @override
   Future<MovieProviderState> build() async {
     final repository = ref.watch(apiRepositoryProvider);
+    final localRepository = ref.watch(objectBoxRepositoryProvider);
     final results = await Future.wait(
       [
-        MovieApiUsecase(repository: repository)(),
-        MovieTopRatedApiUsecase(repository: repository)(),
-        PopularMoviesUsecase(repository: repository)(),
-        UpcomingMovieUsecase(repository: repository)(),
+        MovieApiUsecase(
+          apiRepo: repository,
+          localStorageRepo: localRepository,
+        )(),
+        MovieTopRatedApiUsecase(
+          apiRepo: repository,
+          localStorageRepo: localRepository,
+        )(),
+        PopularMoviesUsecase(
+          apiRepo: repository,
+          localStorageRepo: localRepository,
+        )(),
+        UpcomingMovieUsecase(
+          apiRepo: repository,
+          localStorageRepo: localRepository,
+        )(),
       ],
     );
     return MovieProviderState(
