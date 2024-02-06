@@ -1,6 +1,7 @@
 import 'package:movie_app/feature/featue_api/data/data_Source/apis/api_services_datasource.dart';
 import 'package:movie_app/feature/featue_api/data/data_Source/apis/api_services_datasource_impl.dart';
 import 'package:movie_app/feature/featue_api/domain/entity/model_entity.dart';
+import 'package:movie_app/feature/featue_api/domain/entity/youtube_entity.dart';
 import 'package:movie_app/feature/featue_api/domain/rerository/api_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -106,6 +107,25 @@ class ApiRepositoryImpl implements ApiRepository {
           voteAverage: result.voteAverage,
           originalLanguage: result.originalLanguage ?? '',
           backdropPath: result.backdropPath ?? '',
+        ),
+    ];
+    return result;
+  }
+
+  @override
+  Future<List<YoutubeEntity>?> youtubeVideos(String id) async {
+    final data = await datasource.getYoutube(id);
+
+    late List<YoutubeEntity> result;
+    result = [
+      for (var results in data.results)
+        YoutubeEntity(
+          name: results.name,
+          key: results.key,
+          site: results.site,
+          type: results.type,
+          official: results.official,
+          id: results.id,
         ),
     ];
     return result;

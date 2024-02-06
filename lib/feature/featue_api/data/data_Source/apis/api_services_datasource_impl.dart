@@ -6,6 +6,7 @@ import 'package:movie_app/core/constants/api_constance.dart';
 import 'package:movie_app/feature/featue_api/data/data_Source/apis/api_services_datasource.dart';
 import 'package:movie_app/feature/featue_api/data/model/firestore_model.dart';
 import 'package:movie_app/feature/featue_api/data/model/movie_model.dart';
+import 'package:movie_app/feature/featue_api/data/model/youtube_api_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'api_services_datasource_impl.g.dart';
@@ -121,6 +122,15 @@ class ApiServcesDatasourceImpl implements ApiServcesDatasource {
       print(e);
     }
     return null;
+  }
+
+  @override
+  Future<TrailerModel> getYoutube(String id) async {
+    dio.options.headers["Authorization"] = tocken;
+    final response = await dio
+        .get("https://api.themoviedb.org/3/movie/${id}/videos?language=en-US");
+
+    return TrailerModel.fromJson(response.data);
   }
 }
 

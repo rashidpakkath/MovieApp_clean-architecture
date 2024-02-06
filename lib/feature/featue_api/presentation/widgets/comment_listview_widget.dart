@@ -24,7 +24,7 @@ class CommentListViewWidget extends ConsumerWidget {
             children: [
               Container(
                 width: MediaQuery.sizeOf(context).width / 1.1,
-                height: 80,
+                height: 70,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(space.space_100),
                 ),

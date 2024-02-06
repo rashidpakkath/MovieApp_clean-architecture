@@ -39,7 +39,6 @@ class CarouselSliderWidget extends ConsumerWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
-              // color: colors.textSubtle,
               image: DecorationImage(
                 image: image,
                 fit: BoxFit.fill,

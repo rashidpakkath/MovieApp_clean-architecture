@@ -5,6 +5,8 @@ class ApiConstance {
       'https://api.themoviedb.org/3/movie/top_rated';
   static const String urlLinkPopular =
       'https://api.themoviedb.org/3/movie/popular';
+  static const String youtubeUrl =
+      'https://api.themoviedb.org/3/movie/1058694/videos?language=en-US';
   static const urlLinkUpcoming = 'https://api.themoviedb.org/3/movie/upcoming';
   static const searchMovie = 'https://api.themoviedb.org/3/search/movie';
   static const String tocken =
