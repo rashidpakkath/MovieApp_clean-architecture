@@ -1,5 +1,6 @@
 # generated code
 **/*.g.dart
+
 # Miscellaneous
 *.class
 *.log
